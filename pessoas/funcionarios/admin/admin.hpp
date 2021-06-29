@@ -24,6 +24,8 @@ class Admin : public Funcionarios {
         string getUser() const;
 
         string getSenha() const;
+    string getSenha2() const;
+    string getSenha23() const;
 };
 
 
