@@ -9,7 +9,6 @@ Pessoa::Pessoa(){}
 
 Pessoa::Pessoa(string nome, string CPF, string tel): nome(nome), CPF(CPF), tel(tel) {}
 
-
 Pessoa::~Pessoa() {}
 
 

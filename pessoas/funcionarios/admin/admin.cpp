@@ -4,13 +4,10 @@
 
 #include <iostream>
 #include "admin.hpp"
-#include "../funcionarios.hpp"
 
 Admin::Admin(string nome,string cpf, string tel, string cargo, double salario,string user, string senha):
-Funcionarios(nome, cpf, tel,cargo,salario), user(user), senha(senha) {
-
-
-};
+Funcionarios(nome, cpf, tel,cargo,salario), user(user), senha(senha) {}
+Admin::~Admin(){}
 
 void Admin::setUser(string user) {
     this->user = user;

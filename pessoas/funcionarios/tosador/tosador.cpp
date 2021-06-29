@@ -4,6 +4,5 @@
 
 #include "tosador.hpp"
 
-Tosador::Tosador(string nome,string cpf, string tel, string cargo, double salario):Funcionarios(nome,cpf,tel,cargo,salario) {
-
-}
+Tosador::Tosador(string nome,string cpf, string tel, string cargo, double salario):Funcionarios(nome,cpf,tel,cargo,salario) {}
+Tosador::~Tosador() {}

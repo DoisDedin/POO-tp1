@@ -5,4 +5,28 @@
 #ifndef UNTITLED1_VETERINARIO_HPP
 #define UNTITLED1_VETERINARIO_HPP
 
+#include <iostream>
+#include <string>
+#include "../funcionarios.hpp"
+
+
+using namespace std;
+
+class Veterinario : public Funcionarios {
+public:
+    string user;
+    string senha;
+
+public:
+    Veterinario();
+    Veterinario(string ="",string ="", string ="" ,string ="", double  = 0.0,string ="", string ="");
+    ~Veterinario();
+    void setUser(string user);
+
+    void setSenha(string senha);
+
+    string getUser() const;
+
+    string getSenha() const;
+};
 #endif //UNTITLED1_VETERINARIO_HPP
