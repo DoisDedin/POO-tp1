@@ -28,4 +28,4 @@ add_executable(
             pessoas/funcionarios/funcionarios.hpp
 
 
-        pessoas/funcionarios/admin/admin.cpp pessoas/funcionarios/tosador/tosador.cpp pessoas/funcionarios/tosador/tosador.hpp)
+        pessoas/funcionarios/admin/admin.cpp pessoas/funcionarios/tosador/tosador.cpp pessoas/funcionarios/tosador/tosador.hpp pessoas/funcionarios/vendedor/vendedor.cpp pessoas/funcionarios/vendedor/vendedor.hpp pessoas/funcionarios/veterinario/veterinario.cpp pessoas/funcionarios/veterinario/veterinario.hpp)
