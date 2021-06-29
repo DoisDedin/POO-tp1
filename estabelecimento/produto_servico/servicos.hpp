@@ -7,14 +7,19 @@
 using namespace std;
 
 class Servicos{
-    private:
-        string consulta;
-        string banhoTosa;
-    public:
-        void setConsulta(string consulta);
-        void setBanhoTosa(string banhoTosa);
+        string nome;
+        double preco;
 
-        string getConsulta() const;
-        string getBanhoTosa() const;
+    public:
+        Servicos();
+        Servicos(string nome, double preco);
+        ~Servicos();
+
+        void setNome(string nome);
+        void setPreco(double preco);
+
+        string getNome() const;
+        double getPreco() const;
+
 };
 #endif

@@ -3,8 +3,8 @@
         Produtos::Produtos(){}
         Produtos::Produtos(int quantidade, double preco):quantidade(quantidade), preco(preco){}
 
-        void Produtos::setQuantidade(int qunatidade){
-            this->quantidade = qunatidade;
+        void Produtos::setQuantidade(int quantidade){
+            this->quantidade = quantidade;
         }
         void Produtos::setPreco(double preco){
             this->preco = preco;
@@ -16,6 +16,8 @@
         double Produtos::getPreco() const{
             return preco;
         }
+
+
 
         void Produtos::tiraDoEstoque(int qtdVendidos, int quantidade){
             if (quantidade < qtdVendidos){

@@ -7,15 +7,14 @@
 using namespace std;
 
 class Produtos{
-    private:
         int quantidade;
         double preco;
     public:
-        ~Produtos();
         Produtos();
         Produtos(int quantidade, double preco);
+        ~Produtos();
 
-        void setQuantidade(int qunatidade);
+        void setQuantidade(int quantidade);
         void setPreco(double preco);
 
         int getQuantidade() const;
