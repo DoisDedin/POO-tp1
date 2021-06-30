@@ -1,7 +1,7 @@
 # POO-tp1
 
-DoisDedin: 
-        funcções administrador: DoisDedin
+PetShopp:
+        Funcções administrador: DoisDedin
             Cadastro de vendedor. - DoisDedin
             cadastro produto - DoisDedin
             Cadastro Serviço - DoisDedin
