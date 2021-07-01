@@ -10,8 +10,16 @@ int main() {
     Layout layout = Layout();
     Arquivos arquivos = Arquivos();
     //layout.resizeConsole();
-
+    vector<Vendedor> wwww;
+    Vendedor vende = Vendedor("pedro","cloviho", "mineiro", "sasdasd",11000.00 , "cloves", "basilio");
+    wwww.push_back(vende);
+    Vendedor vende1 = Vendedor("joao","cloviho", "mineiro", "sasdasd",51000.00 , "joao", "basilio");
+    wwww.push_back(vende1);
+    Vendedor vende3 = Vendedor("talk","cloviho", "mineiro", "sasdasd",61000.00 , "talk", "basilio");
+    wwww.push_back(vende3);
     string login, senha;
+
+
 
     do {
         user = layout.layoutPrincipal();

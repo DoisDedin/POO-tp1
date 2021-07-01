@@ -6,7 +6,10 @@
 #define UNTITLED1_ARQUIVOS_H
 #include <iostream>
 #include <string>
+#include <vector>
 #include "windows.h"
+#include "../../pessoas/funcionarios/vendedor/vendedor.hpp"
+
 using namespace std;
 
 class Arquivos{
@@ -17,8 +20,7 @@ public:
     ~Arquivos();
     int validaLogin(int user, string *login, string *senha);
     int buscaNoBanco(int user, string *login, string *senha);
-    int lerArquivo();
-    int escreverArquivo();
-
+    void lerArquivoVendedor(int *size,vector<Vendedor> *vendedor);
+    void escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores);
 };
 #endif //UNTITLED1_ARQUIVOS_H

@@ -3,6 +3,9 @@
 //
 
 #include "arquivos.h"
+#include <vector>
+#include "../../pessoas/funcionarios/vendedor/vendedor.hpp"
+
 Arquivos::Arquivos() {}
 Arquivos::~Arquivos() {}
 
@@ -36,11 +39,18 @@ int Arquivos::validaLogin(int user, string *login, string *senha) {
 int Arquivos::buscaNoBanco(int user, string *login, string *senha){
     return 1;
 }
-int Arquivos::lerArquivo(){
-    return 0;
+void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores){
+    FILE *arquivo = fopen("vendedor.bin", "wb");
+    fwrite(&tamanho, sizeof(int), 1, arquivo);
+    fwrite(vendedores, sizeof(int), tamanho, arquivo);
+    int x = vendedores->size();
+    fclose(arquivo);
 }
-int Arquivos::escreverArquivo(){
 
-    
-    return 0;
+void  Arquivos::lerArquivoVendedor(int *tamanho, vector<Vendedor> *vendedores){
+        FILE *vendedorArq = fopen("vendedor.bin", "rb");
+         fread(tamanho, sizeof(int), 1, vendedorArq);
+         fread(vendedores, sizeof(Vendedor), *tamanho,vendedorArq);
+         fclose(vendedorArq);
 }
+
