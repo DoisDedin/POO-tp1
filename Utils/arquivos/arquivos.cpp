@@ -5,52 +5,104 @@
 #include "arquivos.h"
 #include <vector>
 #include "../../pessoas/funcionarios/vendedor/vendedor.hpp"
+#include "../../pessoas/funcionarios/tosador/tosador.hpp"
+#include "../../pessoas/clientes/cliente.hpp"
 
 Arquivos::Arquivos() {}
+
 Arquivos::~Arquivos() {}
 
 int Arquivos::validaLogin(int user, string *login, string *senha) {
     int x;
     switch (user) {
         case 1:
-            if (*login =="admin" && *senha == "admin"){
+            if (*login == "admin" && *senha == "admin") {
                 cout << "entrou no admin" << endl;
-                return 1;}else {return 0;}
+                return 1;
+            } else { return 0; }
             break;
         case 2:
-            x = buscaNoBanco(user,login,senha);
-            if (x == 1){
+            x = buscaNoBanco(user, login, senha);
+            if (x == 1) {
                 cout << "entrou no vendedor" << endl;
-                return 1;}else {return 0;}
+                return 1;
+            } else { return 0; }
             break;
         case 3:
-            x = buscaNoBanco(user,login,senha);
-            if (x == 1){
+            x = buscaNoBanco(user, login, senha);
+            if (x == 1) {
                 cout << "entrou no veterinario" << endl;
-                return 1
-                ;}else {return 0;}
+                return 1;
+            } else { return 0; }
             break;
         default:
-            return  0;
+            return 0;
             break;
     }
     return 0;
 }
-int Arquivos::buscaNoBanco(int user, string *login, string *senha){
+
+int Arquivos::buscaNoBanco(int user, string *login, string *senha) {
     return 1;
 }
-void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores){
+
+//leitura e escrita de arquivos em memoria secundaria  - Vendedor
+void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores) {
     FILE *arquivo = fopen("vendedor.bin", "wb");
     fwrite(&tamanho, sizeof(int), 1, arquivo);
-    fwrite(vendedores, sizeof(int), tamanho, arquivo);
+    fwrite(vendedores, sizeof(Vendedor), tamanho, arquivo);
     int x = vendedores->size();
     fclose(arquivo);
 }
 
-void  Arquivos::lerArquivoVendedor(int *tamanho, vector<Vendedor> *vendedores){
-        FILE *vendedorArq = fopen("vendedor.bin", "rb");
-         fread(tamanho, sizeof(int), 1, vendedorArq);
-         fread(vendedores, sizeof(Vendedor), *tamanho,vendedorArq);
-         fclose(vendedorArq);
+void Arquivos::lerArquivoVendedor(int *tamanho, vector<Vendedor> *vendedores) {
+    FILE *vendedorArq = fopen("vendedor.bin", "rb");
+    fread(tamanho, sizeof(int), 1, vendedorArq);
+    fread(vendedores, sizeof(Vendedor), *tamanho, vendedorArq);
+    fclose(vendedorArq);
 }
 
+//leitura e escrita de arquivos em memoria secundaria  - Veterinario
+void Arquivos::escreverArquivoVeterinario(int tamanho, vector<Veterinario> *veterinario) {
+    FILE *veterinarioArq = fopen("veterinario.bin", "wb");
+    fwrite(&tamanho, sizeof(int), 1, veterinarioArq);
+    fwrite(veterinario, sizeof(Veterinario), tamanho, veterinarioArq);
+    fclose(veterinarioArq);
+}
+
+void Arquivos::lerArquivoVeterinario(int *tamanho, vector<Veterinario> *veterinario) {
+    FILE *veterinarioArq = fopen("veterinario.bin", "rb");
+    fread(tamanho, sizeof(int), 1, veterinarioArq);
+    fread(veterinario, sizeof(Veterinario), *tamanho, veterinarioArq);
+    fclose(veterinarioArq);
+}
+
+//leitura e escrita de arquivos em memoria secundaria  - Tosador
+void Arquivos::escreverArquivoTosador(int tamanho, vector<Tosador> *tosador) {
+    FILE *tosadorArq = fopen("tosador.bin", "wb");
+    fwrite(&tamanho, sizeof(int), 1, tosadorArq);
+    fwrite(tosador, sizeof(Tosador), tamanho, tosadorArq);
+    fclose(tosadorArq);
+}
+
+void Arquivos::lerArquivoTosador(int *tamanho, vector<Tosador> *tosador) {
+    FILE *tosadorArq = fopen("tosador.bin", "rb");
+    fread(tamanho, sizeof(int), 1, tosadorArq);
+    fread(tosador, sizeof(Tosador), *tamanho, tosadorArq);
+    fclose(tosadorArq);
+}
+
+//leitura e escrita de arquivos em memoria secundaria - Cliente
+void Arquivos::escreverArquivoCliente(int tamanho, vector<Cliente> *cliente) {
+    FILE *clienteArq = fopen("cliente.bin", "wb");
+    fwrite(&tamanho, sizeof(int), 1, clienteArq);
+    fwrite(cliente, sizeof(Tosador), tamanho, clienteArq);
+    fclose(clienteArq);
+}
+
+void Arquivos::lerArquivoCliente(int *tamanho, vector<Cliente> *cliente) {
+    FILE *clienteArq = fopen("cliente.bin", "rb");
+    fread(tamanho, sizeof(int), 1, clienteArq);
+    fread(cliente, sizeof(Tosador), *tamanho, clienteArq);
+    fclose(clienteArq);
+}
