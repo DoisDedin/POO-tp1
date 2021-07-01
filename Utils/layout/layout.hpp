@@ -16,7 +16,7 @@ class Layout{
     Layout();
     ~Layout();
     int layoutPrincipal();
-    void layoutSecundario();
+    void layoutLoguin(int user,string *login, string *senha);
     void resizeConsole();
 };
 #endif //UNTITLED1_LAYOUT_HPP

@@ -1,14 +1,20 @@
 #include <iostream>
-#include "../Utils/layout.hpp"
+#include "../Utils/layout/layout.hpp"
+#include "../Utils/arquivos/arquivos.h"
 
 using namespace std;
 
 int main() {
-    int result;
+    int user;
     Layout layout = Layout();
-    layout.resizeConsole();
-    result = layout.layoutPrincipal();
-    cout << result << endl;
-    system("pause");
+    Arquivos arquivos = Arquivos();
+    //layout.resizeConsole();
+    user = layout.layoutPrincipal();
+    string login, senha;
+    layout.layoutLoguin(user, &login, &senha);
+    cout << login << endl;
+    cout << senha << endl;
+    int x =0;
+    arquivos.validaLogin(user,&login,&senha);
     return 0;
 }
