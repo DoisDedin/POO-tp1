@@ -68,6 +68,8 @@ void Layout::layoutLoguin(int user, string *login, string *senha) {
             fflush(stdin);
             getline(cin, *senha);
             break;
+        case 4:
+            break;
         default:
             cout << "vc digitou algo errado ;" << endl;
             break;
