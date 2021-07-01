@@ -17,5 +17,8 @@ public:
     ~Arquivos();
     int validaLogin(int user, string *login, string *senha);
     int buscaNoBanco(int user, string *login, string *senha);
+    int lerArquivo();
+    int escreverArquivo();
+
 };
 #endif //UNTITLED1_ARQUIVOS_H

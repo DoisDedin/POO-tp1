@@ -16,7 +16,7 @@ PetShopp:
     f   Funções veterinario:    -DoisDedin
                 cadastro de cliente 
                 ordem de serviço - DuGrau
-        Funções vendedor: -DoisDedin]
+        Funções vendedor: -DoisDedin
                 realiazr uma venda    -   DuGrau 
                 produtos
                         2 rações

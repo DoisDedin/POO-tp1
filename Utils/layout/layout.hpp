@@ -15,8 +15,12 @@ class Layout{
 
     Layout();
     ~Layout();
+    void resizeConsole();
     int layoutPrincipal();
     void layoutLoguin(int user,string *login, string *senha);
-    void resizeConsole();
+    int layoutAdmin();
+    int layoutVendedor();
+    int layoutVeterinario();
+
 };
 #endif //UNTITLED1_LAYOUT_HPP

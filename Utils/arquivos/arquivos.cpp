@@ -36,3 +36,11 @@ int Arquivos::validaLogin(int user, string *login, string *senha) {
 int Arquivos::buscaNoBanco(int user, string *login, string *senha){
     return 1;
 }
+int Arquivos::lerArquivo(){
+    return 0;
+}
+int Arquivos::escreverArquivo(){
+
+    
+    return 0;
+}

@@ -12,9 +12,22 @@ int main() {
     user = layout.layoutPrincipal();
     string login, senha;
     layout.layoutLoguin(user, &login, &senha);
-    cout << login << endl;
-    cout << senha << endl;
-    int x =0;
-    arquivos.validaLogin(user,&login,&senha);
+
+    if (arquivos.validaLogin(user,&login,&senha)){
+        switch (user) {
+            case 1:
+                layout.layoutAdmin();
+                break;
+            case 2:
+                layout.layoutVendedor();
+                break;
+            case 3:
+                layout.layoutVeterinario();
+                break;
+            default:
+                cout << "erro invalid code" << endl;
+                break;
+        }
+    }
     return 0;
 }
