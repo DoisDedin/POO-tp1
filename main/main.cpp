@@ -5,19 +5,44 @@
 using namespace std;
 
 int main() {
+    string login, senha;
     int stop = 0;
     int user;
     Layout layout = Layout();
+    //declarando todos os vetores usados no sistema;
+    vector<Vendedor> vendedores;
+    int sizeVendedores = 0;
+    vector<Veterinario> veterinarios;
+    int sizeVeterinario = 0;
+    vector<Tosador> tosadores;
+    int sizeTosadores = 0;
+    vector<Cliente> clientes;
+    int sizeClientes = 0;
+    vector<Compras> compras;
+    int sizeCompras = 0;
+    vector<Pagamentos> pagamentos;
+    int sizePagamentos = 0;
+    vector<Produtos> produtos;
+    int sizeProdutos = 0;
+    vector<Servicos> servicos;
+    int sizeServicos = 0;
+
+    //declarando o responsavel pela manipulação dos arquivos e sua chamada para encher os vetores com os dados
     Arquivos arquivos = Arquivos();
-    //layout.resizeConsole();
-    vector<Vendedor> wwww;
-    Vendedor vende = Vendedor("pedro","cloviho", "mineiro", "sasdasd",11000.00 , "cloves", "basilio");
-    wwww.push_back(vende);
-    Vendedor vende1 = Vendedor("joao","cloviho", "mineiro", "sasdasd",51000.00 , "joao", "basilio");
-    wwww.push_back(vende1);
-    Vendedor vende3 = Vendedor("talk","cloviho", "mineiro", "sasdasd",61000.00 , "talk", "basilio");
-    wwww.push_back(vende3);
-    string login, senha;
+    arquivos.lerArquivoVendedor(&sizeVendedores, &vendedores);
+    arquivos.lerArquivoVeterinario(&sizeVeterinario,&veterinarios);
+    arquivos.lerArquivoTosador(&sizeTosadores,&tosadores);
+    arquivos.lerArquivoCliente(&sizeClientes,&clientes);
+    arquivos.lerArquivoCompras(&sizeCompras,&compras);
+    arquivos.lerArquivoPagamentos(&sizePagamentos,&pagamentos);
+    arquivos.lerArquivoProdutos(&sizeProdutos,&produtos);
+    arquivos.lerArquivoServico(&sizeServicos,&servicos);
+
+    //layout.resizeConsole(); //não apaga
+
+
+
+
 
 
 
@@ -59,5 +84,16 @@ int main() {
         }
     } while (stop != -1);
 
+    arquivos.escreverArquivoVendedor(sizeVendedores, &vendedores);
+    arquivos.escreverArquivoVeterinario(sizeVeterinario,&veterinarios);
+    arquivos.escreverArquivoTosador(sizeTosadores,&tosadores);
+    arquivos.escreverArquivoCliente(sizeClientes,&clientes);
+    arquivos.escreverArquivoCompras(sizeCompras,&compras);
+    arquivos.escreverArquivoPagamentos(sizePagamentos,&pagamentos);
+    arquivos.escreverArquivoProdutos(sizeProdutos,&produtos);
+    arquivos.escreverArquivoServico(sizeServicos,&servicos);
+
+    cout << "rolou" << endl ;
     return 0;
 }
+

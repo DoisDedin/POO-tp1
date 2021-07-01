@@ -52,14 +52,23 @@ int Arquivos::buscaNoBanco(int user, string *login, string *senha) {
 //leitura e escrita de arquivos em memoria secundaria  - Vendedor
 void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores) {
     FILE *arquivo = fopen("vendedor.bin", "wb");
+
     fwrite(&tamanho, sizeof(int), 1, arquivo);
+
     fwrite(vendedores, sizeof(Vendedor), tamanho, arquivo);
     fclose(arquivo);
 }
 
 void Arquivos::lerArquivoVendedor(int *tamanho, vector<Vendedor> *vendedores) {
     FILE *vendedorArq = fopen("vendedor.bin", "rb");
+    if(vendedorArq == NULL){
+        cout<< "é nulo" << endl;
+    }
+
     fread(tamanho, sizeof(int), 1, vendedorArq);
+    if(tamanho ==  0){
+        cout<< "é 0" << endl;
+    }
     fread(vendedores, sizeof(Vendedor), *tamanho, vendedorArq);
     fclose(vendedorArq);
 }
