@@ -8,7 +8,7 @@
 using namespace std;
 
 class Funcionarios: public Pessoa{
-    public:
+private:
         string cargo;
         double salario;
     

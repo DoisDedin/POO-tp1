@@ -8,17 +8,16 @@
 #include <iostream>
 #include <string>
 #include "../funcionarios.hpp"
-
+#include <vector>
 using namespace std;
 
 class Vendedor : public Funcionarios {
-public:
+private:
     string user;
     string senha;
 
 public:
     ~Vendedor();
-    Vendedor();
     Vendedor(string ="",string ="", string ="" ,string ="", double  = 0.0,string ="", string ="");
 
     void setUser(string user);
@@ -28,6 +27,7 @@ public:
     string getUser() const;
 
     string getSenha() const;
+    void imprimeVendedores(vector<Vendedor> &vector);
 };
 
 

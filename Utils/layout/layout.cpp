@@ -93,7 +93,7 @@ int Layout::layoutAdmin() {
     cout << "           8  - Pagar Conta. " << endl;
     cout << "           9  - Compras. " << endl;
     cout << "           10 - Gerar Relatorios. " << endl;
-    cout << "           11 - Voltar. " << endl << endl;
+    cout << "           -1 - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;
     return x;
@@ -106,7 +106,7 @@ int Layout::layoutVendedor() {
     cout << "       Escolha uma das opcoes:" << endl << endl;
     cout << "           1  - Cadastro de cliente. " << endl;
     cout << "           2  - Realizar Venda. " << endl;
-    cout << "           3  - Voltar. " << endl << endl;
+    cout << "           -1  - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;
     return x;
@@ -119,7 +119,7 @@ int Layout::layoutVeterinario() {
     cout << "       Escolha uma das opcoes:" << endl << endl;
     cout << "           1  - Cadastro de cliente. " << endl;
     cout << "           2  - Realizar Ordem e Servico. " << endl;
-    cout << "           3  - Voltar. " << endl << endl;
+    cout << "           -1  - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;
     return x;

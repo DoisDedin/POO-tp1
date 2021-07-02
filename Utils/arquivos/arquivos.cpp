@@ -48,136 +48,170 @@ int Arquivos::validaLogin(int user, string *login, string *senha) {
 int Arquivos::buscaNoBanco(int user, string *login, string *senha) {
     return 1;
 }
+
+void Arquivos::inicializaArquivo() {
+    int variavel = 0;
+    FILE *arquivo = fopen("vendedor.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo);
+    fclose(arquivo);
+
+    FILE *arquivo1 = fopen("veterinario.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo1);
+    fclose(arquivo1);
+
+    FILE *arquivo2 = fopen("tosador.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo2);
+    fclose(arquivo2);
+
+    FILE *arquivo3 = fopen("cliente.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo3);
+    fclose(arquivo3);
+
+    FILE *arquivo4 = fopen("compras.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo4);
+    fclose(arquivo4);
+
+    FILE *arquivo5 = fopen("pagamentos.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo5);
+    fclose(arquivo5);
+
+    FILE *arquivo6 = fopen("produtos.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo6);
+    fclose(arquivo6);
+
+    FILE *arquivo7 = fopen("servicos.dat", "wb");
+    fwrite(&variavel, sizeof(int), 1, arquivo7);
+    fclose(arquivo7);
+}
+
 //pessoas
 //leitura e escrita de arquivos em memoria secundaria  - Vendedor
-void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> *vendedores) {
-    FILE *arquivo = fopen("vendedor.bin", "wb");
-
+void Arquivos::escreverArquivoVendedor(int tamanho, vector<Vendedor> &vendedores) {
+    FILE *arquivo = fopen("vendedor.dat", "wb");
     fwrite(&tamanho, sizeof(int), 1, arquivo);
-
-    fwrite(vendedores, sizeof(Vendedor), tamanho, arquivo);
+    fwrite(&vendedores, sizeof(Vendedor), tamanho, arquivo);
     fclose(arquivo);
 }
 
-void Arquivos::lerArquivoVendedor(int *tamanho, vector<Vendedor> *vendedores) {
-    FILE *vendedorArq = fopen("vendedor.bin", "rb");
-    if(vendedorArq == NULL){
-        cout<< "é nulo" << endl;
-    }
+void Arquivos::lerArquivoVendedor(int tamanho, vector<Vendedor> &vendedores) {
 
-    fread(tamanho, sizeof(int), 1, vendedorArq);
-    if(tamanho ==  0){
-        cout<< "é 0" << endl;
+    FILE *vendedorArq;
+    if ((vendedorArq = fopen("vendedor.dat", "rb")) == NULL) {
+        cout << "Erro na criação do arquivo binário." << endl;
+    } else {
+        fread(&tamanho, sizeof(int), 1, vendedorArq);
+        if (tamanho != 0) {
+            fread(&vendedores, sizeof(Vendedor), tamanho, vendedorArq);
+        }
     }
-    fread(vendedores, sizeof(Vendedor), *tamanho, vendedorArq);
     fclose(vendedorArq);
 }
 
 //leitura e escrita de arquivos em memoria secundaria  - Veterinario
-void Arquivos::escreverArquivoVeterinario(int tamanho, vector<Veterinario> *veterinario) {
-    FILE *veterinarioArq = fopen("veterinario.bin", "wb");
+void Arquivos::escreverArquivoVeterinario(int tamanho, vector<Veterinario> &veterinario) {
+    FILE *veterinarioArq = fopen("veterinario.dat", "wb");
     fwrite(&tamanho, sizeof(int), 1, veterinarioArq);
-    fwrite(veterinario, sizeof(Veterinario), tamanho, veterinarioArq);
+    fwrite(&veterinario, sizeof(Veterinario), tamanho, veterinarioArq);
     fclose(veterinarioArq);
 }
 
-void Arquivos::lerArquivoVeterinario(int *tamanho, vector<Veterinario> *veterinario) {
-    FILE *veterinarioArq = fopen("veterinario.bin", "rb");
-    fread(tamanho, sizeof(int), 1, veterinarioArq);
-    fread(veterinario, sizeof(Veterinario), *tamanho, veterinarioArq);
+void Arquivos::lerArquivoVeterinario(int tamanho, vector<Veterinario> &veterinario) {
+    FILE *veterinarioArq = fopen("veterinario.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, veterinarioArq);
+    fread(&veterinario, sizeof(Veterinario), tamanho, veterinarioArq);
     fclose(veterinarioArq);
 }
 
 //leitura e escrita de arquivos em memoria secundaria  - Tosador
-void Arquivos::escreverArquivoTosador(int tamanho, vector<Tosador> *tosador) {
-    FILE *tosadorArq = fopen("tosador.bin", "wb");
+void Arquivos::escreverArquivoTosador(int tamanho, vector<Tosador> &tosador) {
+    FILE *tosadorArq = fopen("tosador.dat", "wb");
     fwrite(&tamanho, sizeof(int), 1, tosadorArq);
-    fwrite(tosador, sizeof(Tosador), tamanho, tosadorArq);
+    fwrite(&tosador, sizeof(Tosador), tamanho, tosadorArq);
     fclose(tosadorArq);
 }
 
-void Arquivos::lerArquivoTosador(int *tamanho, vector<Tosador> *tosador) {
-    FILE *tosadorArq = fopen("tosador.bin", "rb");
-    fread(tamanho, sizeof(int), 1, tosadorArq);
-    fread(tosador, sizeof(Tosador), *tamanho, tosadorArq);
+void Arquivos::lerArquivoTosador(int tamanho, vector<Tosador> &tosador) {
+    FILE *tosadorArq = fopen("tosador.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, tosadorArq);
+    fread(&tosador, sizeof(Tosador), tamanho, tosadorArq);
     fclose(tosadorArq);
 }
 
 //leitura e escrita de arquivos em memoria secundaria - Cliente
-void Arquivos::escreverArquivoCliente(int tamanho, vector<Cliente> *cliente) {
-    FILE *clienteArq = fopen("cliente.bin", "wb");
+void Arquivos::escreverArquivoCliente(int tamanho, vector<Cliente> &cliente) {
+    FILE *clienteArq = fopen("cliente.dat", "wb");
     fwrite(&tamanho, sizeof(int), 1, clienteArq);
-    fwrite(cliente, sizeof(Cliente), tamanho, clienteArq);
+    fwrite(&cliente, sizeof(Cliente), tamanho, clienteArq);
     fclose(clienteArq);
 }
 
-void Arquivos::lerArquivoCliente(int *tamanho, vector<Cliente> *cliente) {
-    FILE *clienteArq = fopen("cliente.bin", "rb");
-    fread(tamanho, sizeof(int), 1, clienteArq);
-    fread(cliente, sizeof(Cliente), *tamanho, clienteArq);
+void Arquivos::lerArquivoCliente(int tamanho, vector<Cliente> &cliente) {
+    FILE *clienteArq = fopen("cliente.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, clienteArq);
+    fread(&cliente, sizeof(Cliente), tamanho, clienteArq);
     fclose(clienteArq);
 }
 
 
 //estabelecimentos
 // leitura e escrita de arquvios em memoria secundaria - Compras
-void Arquivos::escreverArquivoCompras(int tamanho, vector<Compras> *compras) {
-    FILE *comprasArq = fopen("compras.bin", "wb");
+void Arquivos::escreverArquivoCompras(int tamanho, vector<Compras> &compras) {
+    FILE *comprasArq = fopen("compras.dat", "wb");
     fwrite(&tamanho, sizeof(int), 1, comprasArq);
-    fwrite(compras, sizeof(Compras), tamanho, comprasArq);
+    fwrite(&compras, sizeof(Compras), tamanho, comprasArq);
     fclose(comprasArq);
 }
 
-void Arquivos::lerArquivoCompras(int *tamanho, vector<Compras> *compras) {
-    FILE *comprasArq = fopen("compras.bin", "rb");
-    fread(tamanho, sizeof(int), 1, comprasArq);
-    fread(compras, sizeof(Compras), *tamanho, comprasArq);
+void Arquivos::lerArquivoCompras(int tamanho, vector<Compras> &compras) {
+    FILE *comprasArq = fopen("compras.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, comprasArq);
+    fread(&compras, sizeof(Compras), tamanho, comprasArq);
     fclose(comprasArq);
 }
 
 // leitura e escrita de arquivos em memoria secundaria - Pagamentos
-void Arquivos::escreverArquivoPagamentos(int tamanho, vector<Pagamentos> *pagamentos) {
-    FILE *pagamentosArq = fopen("pagamentos.bin", "wb");
-    fwrite(&tamanho, sizeof(int), 1,pagamentosArq);
-    fwrite(pagamentos, sizeof(Pagamentos), tamanho, pagamentosArq);
+void Arquivos::escreverArquivoPagamentos(int tamanho, vector<Pagamentos> &pagamentos) {
+    FILE *pagamentosArq = fopen("pagamentos.dat", "wb");
+    fwrite(&tamanho, sizeof(int), 1, pagamentosArq);
+    fwrite(&pagamentos, sizeof(Pagamentos), tamanho, pagamentosArq);
     fclose(pagamentosArq);
 }
 
-void Arquivos::lerArquivoPagamentos(int *tamanho, vector<Pagamentos> *pagamentos) {
-    FILE *pagamentosArq = fopen("pagamentos.bin", "rb");
-    fread(tamanho, sizeof(int), 1, pagamentosArq);
-    fread(pagamentos, sizeof(Pagamentos), *tamanho, pagamentosArq);
+void Arquivos::lerArquivoPagamentos(int tamanho, vector<Pagamentos> &pagamentos) {
+    FILE *pagamentosArq = fopen("pagamentos.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, pagamentosArq);
+    fread(&pagamentos, sizeof(Pagamentos), tamanho, pagamentosArq);
     fclose(pagamentosArq);
 }
 
 
 // leitura e escrita de arquivos em memoria secundaria - Produtos
-void Arquivos::escreverArquivoProdutos(int tamanho, vector<Produtos> *produtos) {
-    FILE *produtosArq = fopen("produtos.bin", "wb");
-    fwrite(&tamanho, sizeof(int), 1,produtosArq);
-    fwrite(produtos, sizeof(Produtos), tamanho, produtosArq);
+void Arquivos::escreverArquivoProdutos(int tamanho, vector<Produtos> &produtos) {
+    FILE *produtosArq = fopen("produtos.dat", "wb");
+    fwrite(&tamanho, sizeof(int), 1, produtosArq);
+    fwrite(&produtos, sizeof(Produtos), tamanho, produtosArq);
     fclose(produtosArq);
 }
 
-void Arquivos::lerArquivoProdutos(int *tamanho, vector<Produtos> *produtos) {
-    FILE *produtosArq = fopen("produtos.bin", "rb");
-    fread(tamanho, sizeof(int), 1, produtosArq);
-    fread(produtos, sizeof(Produtos), *tamanho,produtosArq);
+void Arquivos::lerArquivoProdutos(int tamanho, vector<Produtos> &produtos) {
+    FILE *produtosArq = fopen("produtos.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, produtosArq);
+    fread(&produtos, sizeof(Produtos), tamanho, produtosArq);
     fclose(produtosArq);
 }
 
 
 // leitura e escrita de arquivos em memoria secundaria - Servicos
-void Arquivos::escreverArquivoServico(int tamanho, vector<Servicos> *servico) {
-    FILE *servicoArq = fopen("servico.bin", "wb");
-    fwrite(&tamanho, sizeof(int), 1,servicoArq);
-    fwrite(servico, sizeof(Servicos), tamanho, servicoArq);
+void Arquivos::escreverArquivoServico(int tamanho, vector<Servicos> &servico) {
+    FILE *servicoArq = fopen("servicos.dat", "wb");
+    fwrite(&tamanho, sizeof(int), 1, servicoArq);
+    fwrite(&servico, sizeof(Servicos), tamanho, servicoArq);
     fclose(servicoArq);
 }
 
-void Arquivos::lerArquivoServico(int *tamanho, vector<Servicos> *servico) {
-    FILE *servicoArq = fopen("servico.bin", "rb");
-    fread(tamanho, sizeof(int), 1, servicoArq);
-    fread(servico, sizeof(Servicos), *tamanho,servicoArq);
+void Arquivos::lerArquivoServico(int tamanho, vector<Servicos> &servico) {
+    FILE *servicoArq = fopen("servicos.dat", "rb");
+    fread(&tamanho, sizeof(int), 1, servicoArq);
+    fread(&servico, sizeof(Servicos), tamanho, servicoArq);
     fclose(servicoArq);
 }

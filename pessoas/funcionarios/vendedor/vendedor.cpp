@@ -4,11 +4,13 @@
 
 #include "vendedor.hpp"
 #include <iostream>
+#include <vector>
 #include "../funcionarios.hpp"
+
+Vendedor::~Vendedor(){}
 
 Vendedor::Vendedor(string nome,string cpf, string tel, string cargo, double salario,string user, string senha):
         Funcionarios(nome, cpf, tel,cargo,salario), user(user), senha(senha) {}
-Vendedor::~Vendedor(){}
 
 void Vendedor::setUser(string user) {
     this->user = user;
@@ -22,4 +24,11 @@ string Vendedor::getUser() const {
 }
 string Vendedor::getSenha() const {
     return senha;
+}
+void Vendedor::imprimeVendedores(vector<Vendedor> &vector){
+    for (int i = 0; i < vector.size(); ++i) {
+        string x = vector[i].getUser();
+        string y = vector[i].getSenha();
+        cout << x <<  y << endl;
+    }
 }
