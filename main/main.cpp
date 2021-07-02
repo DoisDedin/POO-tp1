@@ -10,17 +10,40 @@ int main() {
     int stop = 0;
     int stopUsers = 0;
     int user;
-    Vendedor vendedor = Vendedor( "", "",  "",  "", 0.0,"", "");
+    Vendedor vendedor = Vendedor( "main", "main",  "main",  "main", 0.0,"main", "main");
+    Veterinario veterinario =  Veterinario( "second", "second",  "second",  "second", 0.0,"second", "second");
+    Tosador tosador = Tosador( "tird", "tird",  "tird",  "tird", 0.0);
+    Cliente cliente = Cliente("primeiro", "primeiro" , "primeiro", 10);
     Layout layout = Layout();
     //declarando todos os vetores usados no sistema;
     vector<Vendedor> vendedores;
     int sizeVendedores = 0;
+    vendedores.push_back(vendedor);
+    vendedores.push_back(vendedor);
+    vendedores.push_back(vendedor);
+    vendedores.push_back(vendedor);
+    vendedores.push_back(vendedor);
+    sizeVendedores =5;
     vector<Veterinario> veterinarios;
     int sizeVeterinario = 0;
+    veterinarios.push_back(veterinario);
+    veterinarios.push_back(veterinario);
+    veterinarios.push_back(veterinario);
+    veterinarios.push_back(veterinario);
+    sizeVeterinario = 4;
     vector<Tosador> tosadores;
     int sizeTosadores = 0;
+    tosadores.push_back(tosador);
+    tosadores.push_back(tosador);
+    tosadores.push_back(tosador);
+    sizeTosadores =3;
     vector<Cliente> clientes;
     int sizeClientes = 0;
+    clientes.push_back(cliente);
+    clientes.push_back(cliente);
+    clientes.push_back(cliente);
+    clientes.push_back(cliente);
+    sizeClientes = 4;
     vector<Compras> compras;
     int sizeCompras = 0;
     vector<Pagamentos> pagamentos;
@@ -31,19 +54,19 @@ int main() {
     int sizeServicos = 0;
 
     //declarando o responsavel pela manipulação dos arquivos e sua chamada para encher os vetores com os dados
-    Arquivos arquivos = Arquivos();
+   Arquivos arquivos = Arquivos();
    // arquivos.inicializaArquivo();
-    arquivos.lerArquivoVendedor(sizeVendedores, vendedores);
-    arquivos.lerArquivoVeterinario(sizeVeterinario,veterinarios);
-    arquivos.lerArquivoTosador(sizeTosadores,tosadores);
-    arquivos.lerArquivoCliente(sizeClientes,clientes);
-    arquivos.lerArquivoCompras(sizeCompras,compras);
-    arquivos.lerArquivoPagamentos(sizePagamentos,pagamentos);
-    arquivos.lerArquivoProdutos(sizeProdutos,produtos);
-    arquivos.lerArquivoServico(sizeServicos,servicos);
+   // arquivos.lerArquivoVendedor(sizeVendedores, vendedores);
+  //  arquivos.lerArquivoVeterinario(sizeVeterinario,veterinarios);
+   // arquivos.lerArquivoTosador(sizeTosadores,tosadores);
+   // arquivos.lerArquivoCliente(sizeClientes,clientes);
+  //  arquivos.lerArquivoCompras(sizeCompras,compras);
+  //  arquivos.lerArquivoPagamentos(sizePagamentos,pagamentos);
+  //  arquivos.lerArquivoProdutos(sizeProdutos,produtos);
+  //  arquivos.lerArquivoServico(sizeServicos,servicos);
 
     //layout.resizeConsole(); //não apaga
-    vendedor.imprimeVendedores(vendedores);
+    //vendedor.imprimeVendedores(vendedores);
 
     int y;
 
@@ -96,8 +119,16 @@ int main() {
                             case 3:
                                 break;
                             case 4:
+                                system("cls");
+                                vendedor.imprimeVendedores(vendedores);
+                                veterinario.imprimeVeterinario(veterinarios);
+                                tosador.imprimirTosadores(tosadores);
+                                system("pause");
                                 break;
                             case 5:
+                                system("cls");
+                                cliente.imprimeClientes(clientes);
+                                system("pause");
                                 break;
                             case 6:
                                 break;
@@ -149,15 +180,14 @@ int main() {
                 break;
         }
     } while (stop != -1);
-    vendedor.imprimeVendedores(vendedores);
-    arquivos.escreverArquivoVendedor(sizeVendedores, vendedores);
-    arquivos.escreverArquivoVeterinario(sizeVeterinario,veterinarios);
-    arquivos.escreverArquivoTosador(sizeTosadores,tosadores);
-    arquivos.escreverArquivoCliente(sizeClientes,clientes);
-    arquivos.escreverArquivoCompras(sizeCompras,compras);
-    arquivos.escreverArquivoPagamentos(sizePagamentos,pagamentos);
-    arquivos.escreverArquivoProdutos(sizeProdutos,produtos);
-    arquivos.escreverArquivoServico(sizeServicos,servicos);
+ //   arquivos.escreverArquivoVendedor(sizeVendedores, vendedores);
+  //  arquivos.escreverArquivoVeterinario(sizeVeterinario,veterinarios);
+  //  arquivos.escreverArquivoTosador(sizeTosadores,tosadores);
+ //   arquivos.escreverArquivoCliente(sizeClientes,clientes);
+  //  arquivos.escreverArquivoCompras(sizeCompras,compras);
+  //  arquivos.escreverArquivoPagamentos(sizePagamentos,pagamentos);
+  //  arquivos.escreverArquivoProdutos(sizeProdutos,produtos);
+  //  arquivos.escreverArquivoServico(sizeServicos,servicos);
 
     cout << "rolou" << endl ;
     return 0;

@@ -11,10 +11,10 @@ PetShopp:
             Gerar Relatorios.  - Patrick
                     estoque
                     compra
-                    venda
+                    vendas
                     lucro
     f   Funções veterinario:    -DoisDedin
-                cadastro de cliente 
+                cadastro de cliente  - DuGrau
                 ordem de serviço - DuGrau
         Funções vendedor: -DoisDedin
                 realiazr uma venda    -   DuGrau 

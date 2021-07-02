@@ -4,14 +4,15 @@
 #include <iostream>
 #include <string>
 #include "../pessoa.hpp"
+#include <vector>
 
 using namespace std;
 
-class Cliente:public Pessoa{
-    private:
-        int qtdCompras;
+class Cliente : public Pessoa {
+private:
+    int qtdCompras;
 
-    public:
+public:
 
     Cliente();
 
@@ -19,10 +20,11 @@ class Cliente:public Pessoa{
 
     Cliente(string = "", string = "", string = "", int = 0);
 
-void setQtdCompras(int qtdCompras);
+    void setQtdCompras(int qtdCompras);
 
-int getQtdComrpras() const;
+    int getQtdComrpras() const;
 
+    void imprimeClientes(vector<Cliente> &vector);
 };
 
 #endif

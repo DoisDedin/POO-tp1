@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include "../funcionarios.hpp"
-
+#include <vector>
 
 using namespace std;
 
@@ -28,5 +28,6 @@ public:
     string getUser() const;
 
     string getSenha() const;
+    void imprimeVeterinario(vector<Veterinario> &vector);
 };
 #endif //UNTITLED1_VETERINARIO_HPP

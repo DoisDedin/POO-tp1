@@ -17,15 +17,12 @@ private:
         Funcionarios();
         Funcionarios(string ="", string ="", string ="", string ="", double = 0.0);
 
+
         void setCargo(string cargo);
         void setSalario(double salario);
-        void setUser(string user);
-        void setSenha(string senha);
 
         string getCargo() const;
         double getSalario() const;
-        string getUser() const;
-        string gerSenha() const;
 };
 
 #endif
