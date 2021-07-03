@@ -8,6 +8,7 @@ using namespace std;
 
 class Produtos{
     private:
+        string nome;
         int quantidade;
         double preco;
     public:
@@ -15,9 +16,11 @@ class Produtos{
         Produtos();
         Produtos(int quantidade, double preco);
 
+        void setNome(string nome);
         void setQuantidade(int qunatidade);
         void setPreco(double preco);
 
+        string getNome() const;
         int getQuantidade() const;
         double getPreco() const;
 

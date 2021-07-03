@@ -8,13 +8,19 @@ using namespace std;
 
 class Servicos{
     private:
-        string consulta;
-        string banhoTosa;
+        string nome;
+        string tempo;
+        double preco;
     public:
-        void setConsulta(string consulta);
-        void setBanhoTosa(string banhoTosa);
 
-        string getConsulta() const;
-        string getBanhoTosa() const;
+        Servicos();
+        ~Servicos();
+        void setNome(string nome);
+        void setTempo(string tempo);
+        void setPreco(double preco);
+
+        string getNome() const;
+        string getTempo() const;
+        double getPreco() const;
 };
 #endif

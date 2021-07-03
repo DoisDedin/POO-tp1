@@ -27,7 +27,8 @@ public:
     string getUser() const;
 
     string getSenha() const;
-    void imprimeVendedores(vector<Vendedor> &vector);
+    void imprimeVendedoresSimples(vector<Vendedor> &vector);
+    void imprimeVendedoresCompleto(vector<Vendedor> &vector);
 };
 
 

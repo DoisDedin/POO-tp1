@@ -16,7 +16,8 @@ public:
     ~Tosador();
     Tosador();
     Tosador(string ="",string ="", string ="" ,string ="", double  = 0.0);
-    void imprimirTosadores(vector<Tosador> &tosadores);
+    void imprimeTosadorSimples(vector<Tosador> &tosadores);
+    void imprimeTosadorCompleto(vector<Tosador> &vector);
 };
 
 #endif //UNTITLED1_TOSADOR_HPP

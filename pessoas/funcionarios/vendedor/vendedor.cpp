@@ -25,9 +25,15 @@ string Vendedor::getUser() const {
 string Vendedor::getSenha() const {
     return senha;
 }
-void Vendedor::imprimeVendedores(vector<Vendedor> &vector){
+void Vendedor::imprimeVendedoresSimples(vector<Vendedor> &vector){
     cout <<endl  << "           Vendedores" << endl;
     for (int i = 0; i < vector.size(); ++i) {
-        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF() << "   Salario:"<< vector[i].getSalario()<< endl;
+        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF()<< endl;
+    }
+}
+void Vendedor::imprimeVendedoresCompleto(vector<Vendedor> &vector){
+    cout <<endl  << "           Vendedores" << endl;
+    for (int i = 0; i < vector.size(); ++i) {
+        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF() <<"   tel:"<< vector[i].getTel()<<"   salario:"<< vector[i].getSalario()<< endl;
     }
 }

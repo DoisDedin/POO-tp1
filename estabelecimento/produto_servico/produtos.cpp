@@ -5,15 +5,20 @@ Produtos::Produtos() {}
 Produtos::Produtos(int quantidade, double preco) : quantidade(quantidade), preco(preco) {}
 
 Produtos::~Produtos() {}
+void Produtos::setNome(string nome) {
+    this->nome = nome;
+}
 
 void Produtos::setQuantidade(int qunatidade) {
-    this->quantidade = qunatidade;
+    this->quantidade = quantidade;
 }
 
 void Produtos::setPreco(double preco) {
     this->preco = preco;
 }
-
+string Produtos::getNome() const {
+    return nome;
+}
 int Produtos::getQuantidade() const {
     return quantidade;
 }

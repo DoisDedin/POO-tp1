@@ -23,9 +23,15 @@ string Veterinario::getSenha() const {
     return senha;
 }
 
-void Veterinario::imprimeVeterinario(vector<Veterinario> &vector){
-    cout  <<endl <<   "           Veterinarios" << endl;
+void Veterinario::imprimeVeterinarioSimples(vector<Veterinario> &vector){
+    cout <<endl  << "           Veterinario" << endl;
     for (int i = 0; i < vector.size(); ++i) {
-        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF()<< "   Salario:"<< vector[i].getSalario() << endl;
+        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF()<< endl;
+    }
+}
+void Veterinario::imprimeVeterinarioCompleto(vector<Veterinario> &vector){
+    cout <<endl  << "           Veterinario" << endl;
+    for (int i = 0; i < vector.size(); ++i) {
+        cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF() <<"   tel:"<< vector[i].getTel()<<"   salario:"<< vector[i].getSalario()<< endl;
     }
 }

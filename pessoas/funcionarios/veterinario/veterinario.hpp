@@ -28,6 +28,7 @@ public:
     string getUser() const;
 
     string getSenha() const;
-    void imprimeVeterinario(vector<Veterinario> &vector);
+    void imprimeVeterinarioSimples(vector<Veterinario> &vector);
+    void imprimeVeterinarioCompleto(vector<Veterinario> &vector);
 };
 #endif //UNTITLED1_VETERINARIO_HPP

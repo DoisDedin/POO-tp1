@@ -24,7 +24,8 @@ public:
 
     int getQtdComrpras() const;
 
-    void imprimeClientes(vector<Cliente> &vector);
+    void imprimeClientesSimples(vector<Cliente> &vector);
+    void imprimeClientesCompleto(vector<Cliente> &vector);
 };
 
 #endif

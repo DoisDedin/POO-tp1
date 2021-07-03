@@ -1,15 +1,24 @@
 #include "servicos.hpp"
 
-void Servicos::setConsulta(string consulta){
-    this->consulta = consulta;
+Servicos::Servicos() {}
+Servicos::~Servicos() {}
+
+void Servicos::setNome(string nome) {
+    this->nome = nome;
 }
-void Servicos::setBanhoTosa(string banhoTosa){
-    this->banhoTosa = banhoTosa;
+void Servicos::setPreco(double preco) {
+    this->preco = preco;
+}
+void Servicos::setTempo(string tempo) {
+    this->tempo = tempo;
 }
 
-string Servicos::getConsulta() const{
-    return consulta;
+string Servicos::getNome() const {
+    return nome;
 }
-string Servicos::getBanhoTosa() const{
-    return banhoTosa;
+double Servicos::getPreco() const {
+    return preco;
+}
+string Servicos::getTempo() const {
+    return tempo;
 }
