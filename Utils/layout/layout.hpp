@@ -21,6 +21,7 @@ class Layout{
     int layoutAdmin();
     int layoutVendedor();
     int layoutVeterinario();
+    int layoutRemoverFucionario();
 
 };
 #endif //UNTITLED1_LAYOUT_HPP

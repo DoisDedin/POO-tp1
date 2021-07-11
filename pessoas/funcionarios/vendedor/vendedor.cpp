@@ -37,3 +37,17 @@ void Vendedor::imprimeVendedoresCompleto(vector<Vendedor> &vector){
         cout<< i << ": "<< vector[i].getNome() << "   cpf:"<< vector[i].getCPF() <<"   tel:"<< vector[i].getTel()<<"   salario:"<< vector[i].getSalario()<< endl;
     }
 }
+void Vendedor::removeVendedor(string nome, vector<Vendedor> &vector){
+    int aux;
+    for (int i = 0; i < vector.size(); i++) {
+        if (vector[i].getNome() == nome){
+            aux = i;
+            //erase(vector, vector[aux]);
+            break;
+        }
+    }
+    Vendedor aux2 = Vendedor(vector[aux].getNome(), vector[aux].getCPF(), vector[aux].getTel(), vector[aux].getCargo(), vector[aux].getSalario());
+    vector[aux] = Vendedor(vector[vector.size() - 1].getNome(), vector[vector.size() - 1].getCPF(), vector[vector.size() - 1].getTel(), vector[vector.size() - 1].getCargo(), vector[vector.size() - 1].getSalario());
+    vector[vector.size() - 1] = Vendedor(aux2.getNome(), aux2.getCPF(), aux2.getTel(), aux2.getCargo(), aux2.getSalario());
+    vector.pop_back();
+}

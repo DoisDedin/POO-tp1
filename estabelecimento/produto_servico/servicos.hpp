@@ -7,20 +7,19 @@
 using namespace std;
 
 class Servicos{
-    private:
         string nome;
-        string tempo;
         double preco;
-    public:
 
+    public:
         Servicos();
+        Servicos(string nome, double preco);
         ~Servicos();
+
         void setNome(string nome);
-        void setTempo(string tempo);
         void setPreco(double preco);
 
         string getNome() const;
-        string getTempo() const;
         double getPreco() const;
+
 };
 #endif

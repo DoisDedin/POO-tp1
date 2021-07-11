@@ -1,5 +1,12 @@
 #include "compras.hpp"
 
+
+
+Compras::Compras(){}
+Compras::Compras(int qtdParaAdd): qtdParaAdd(qtdParaAdd){}
+Compras::~Compras(){}
+
+
 void Compras::setQtdParaAdd(int qtdParaAdd){
     this->qtdParaAdd = qtdParaAdd;
 }

@@ -30,5 +30,7 @@ public:
     string getSenha() const;
     void imprimeVeterinarioSimples(vector<Veterinario> &vector);
     void imprimeVeterinarioCompleto(vector<Veterinario> &vector);
+
+    void removeVeterinario(string nome, vector<Veterinario> &vector);
 };
 #endif //UNTITLED1_VETERINARIO_HPP
