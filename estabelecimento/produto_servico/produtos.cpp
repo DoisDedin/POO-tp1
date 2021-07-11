@@ -2,7 +2,7 @@
 
 Produtos::Produtos() {}
 
-Produtos::Produtos(int quantidade, double preco) : quantidade(quantidade), preco(preco) {}
+Produtos::Produtos(string nome, int quantidade, double preco) : nome(nome), quantidade(quantidade), preco(preco) {}
 
 Produtos::~Produtos() {}
 void Produtos::setNome(string nome) {

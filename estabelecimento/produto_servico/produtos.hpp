@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ class Produtos{
     public:
         ~Produtos();
         Produtos();
-        Produtos(int quantidade, double preco);
+        Produtos(string = "", int = 0, double = 0.0);
 
         void setNome(string nome);
         void setQuantidade(int qunatidade);
@@ -25,6 +26,5 @@ class Produtos{
         double getPreco() const;
 
         void tiraDoEstoque(int qtdVendidos, int quantidade);
-
 };
 #endif

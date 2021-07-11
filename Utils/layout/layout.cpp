@@ -21,9 +21,9 @@ int Layout::layoutPrincipal() {
     int x;
     cout << endl << endl << "   Alunos:" << endl << endl;
     cout << "       Joao Vitor Cardoso dos Santos Cotta - 19.2.4069" << endl;
-    cout << "       Luiz ......... - .............." << endl;
-    cout << "       Patrick ................. - .......... - 19.2.4069" << endl;
-    cout << "       DuGrauu ......................  - 19.2.4069" << endl;
+    //cout << "       Luiz ......... - .............." << endl;
+    cout << "       Patrick Araujo de Almeida - 19.2.4117" << endl;
+    cout << "       Erick Junio Barroso Ferreira  - 19.2.4210" << endl;
 
     cout << endl << "                           PetShop                     " << endl << endl;
     cout << "   Bem vindo. Escolha uma das opcoes" << endl << endl;
@@ -93,10 +93,10 @@ int Layout::layoutAdmin() {
     cout << "           8  - Cadastro Produto. " << endl;
     cout << "           9  - Cadastro Servico. " << endl;
     cout << "           10  - Ver Produtos e servicos. " << endl;
-    cout << "           11  - Ver Estoque. " << endl;
-    cout << "           12  - Pagar Conta. " << endl;
-    cout << "           13  - Compras. " << endl;
-    cout << "           14 - Gerar Relatorios. " << endl;
+    cout << "           11  - Pagar Conta. " << endl;
+    cout << "           12  - Compras. " << endl;
+    cout << "           13 - Gerar Relatorios. " << endl;
+    cout << "           14 - Remover Funcionario. " << endl;
     cout << "           -1 - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;
@@ -128,6 +128,18 @@ int Layout::layoutVeterinario() {
     cin >> x;
     return x;
 }
+int Layout::layoutRemoverFucionario() {{
+        system("cls");
+        int x;
+        cout << "       Escolha uma das opcoes:" << endl << endl;
+        cout << "           1  - Remover vendedor. " << endl;
+        cout << "           2  - Remover veterinario. " << endl;
+        cout << "           3  - Remover tosador. " << endl;
+        cout << "           -1  - Voltar. " << endl << endl;
+        cout << "   Opcao:";
+        cin >> x;
+        return x;
+}}
 
 
 

@@ -7,51 +7,60 @@ using namespace std;
 
 int main() {
     string login, senha, nome, cpf, telefone, cargo;
+    string aux;
+    int aux2;
     double salario;
+    int quantidade;
     int stop = 0;
     int stopUsers = 0;
+    int stopRemove = 0;
     int user;
-    Vendedor vendedor = Vendedor("main", "main", "main", "main", 0.0, "main", "main");
-    Veterinario veterinario = Veterinario("second", "second", "second", "second", 0.0, "second", "second");
-    Tosador tosador = Tosador("tird", "tird", "tird", "tird", 0.0);
-    Cliente cliente = Cliente("primeiro", "primeiro", "primeiro", 10);
+
     Layout layout = Layout();
     //declarando todos os vetores usados no sistema;
     vector<Vendedor> vendedores;
     int sizeVendedores = 0;
+    Vendedor vendedor = Vendedor("Joao da Mata", "15578922230", "(23)40891-7331", "vendedor", 1200.10, "vend1", "5533");
     vendedores.push_back(vendedor);
+    vendedor = Vendedor("Bryan O'Conner", "84221454059", "(10)55022-2023", "vendedor", 1250.10, "vend2", "1973");
     vendedores.push_back(vendedor);
-    vendedores.push_back(vendedor);
-    vendedores.push_back(vendedor);
-    vendedores.push_back(vendedor);
-    sizeVendedores = 5;
+    sizeVendedores = 2;
     vector<Veterinario> veterinarios;
     int sizeVeterinario = 0;
+    Veterinario veterinario = Veterinario("Hinata Hyuga", "75807674065", "(72)79764-9945", "veterinario", 3250.0, "vet1", "1113");
     veterinarios.push_back(veterinario);
+    veterinario = Veterinario("Paolo Guerrero", "43325489060", "(26)76518-5348", "veterinario", 3230.0, "vet2", "1984");
     veterinarios.push_back(veterinario);
-    veterinarios.push_back(veterinario);
-    veterinarios.push_back(veterinario);
-    sizeVeterinario = 4;
+    sizeVeterinario = 2;
     vector<Tosador> tosadores;
     int sizeTosadores = 0;
+    Tosador tosador = Tosador("Larissa Silva", "29619550099", "(20)75743-8099", "tosador", 1100.0);
     tosadores.push_back(tosador);
+    tosador = Tosador("Carlos Eduardo", "06733613069", "(77)26843-9252", "tosador", 1100.0);
     tosadores.push_back(tosador);
-    tosadores.push_back(tosador);
-    sizeTosadores = 3;
+    sizeTosadores = 2;
     vector<Cliente> clientes;
     int sizeClientes = 0;
+    Cliente cliente = Cliente("Paulo Plinio", "37283338080", "(60)47950-4741", 10);
     clientes.push_back(cliente);
+    cliente = Cliente("Paula Muller", "39521401044", "(82)26615-9145", 5);
     clientes.push_back(cliente);
-    clientes.push_back(cliente);
-    clientes.push_back(cliente);
-    sizeClientes = 4;
+    sizeClientes = 2;
     vector<Compras> compras;
     int sizeCompras = 0;
     vector<Pagamentos> pagamentos;
     int sizePagamentos = 0;
     vector<Produtos> produtos;
-    Produtos produtos1 = Produtos();
     int sizeProdutos = 0;
+    Produtos produtos1 = Produtos("Coleira", 35, 23.45);
+    produtos.push_back(produtos1);
+    produtos1 = Produtos("Sabonete", 42, 10.50);
+    produtos.push_back(produtos1);
+    produtos1 = Produtos("Mordedor", 15, 8.35);
+    produtos.push_back(produtos1);
+    produtos1 = Produtos("Racao", 150, 98.10);
+    produtos.push_back(produtos1);
+    sizeProdutos = 4;
     vector<Servicos> servicos;
     Servicos servicos1 = Servicos();
     int sizeServicos = 0;
@@ -212,9 +221,11 @@ int main() {
                                 getline(cin, nome);
                                 cout << "               preco:";
                                 cin >> salario;
+                                cout << "               quantidade:";
+                                cin >> quantidade;
                                 produtos1.setNome(nome);
                                 produtos1.setPreco(salario);
-                                produtos1.setQuantidade(0);
+                                produtos1.setQuantidade(quantidade);
                                 produtos.push_back(produtos1);
                                 sizeProdutos++;
                                 system("cls");
@@ -242,19 +253,54 @@ int main() {
                                 //ver produtos e servicos
                                 break;
                             case 10:
-                                //ver estoque
+                                cout << "Produto: " << produtos[2].getNome() <<endl;
+                               /* for (int i = 0; i < produtos.size(); ++i) {
+                                    aux = produtos[i].getNome();
+                                    aux2 = produtos[i].getQuantidade();
+                                    printf("%s  %d", aux, aux2);
+                                }*/
                                 break;
                             case 11:
-                                //ver estoque
-                                break;
-                            case 12:
                                 //Pagar conta
                                 break;
-                            case 13:
+                            case 12:
                                 //Compras
                                 break;
-                            case 14:
+                            case 13:
                                 //Gerar Relatorios
+                                break;
+                            case 14:
+                                while (stopRemove != -1){
+                                    switch (layout.layoutRemoverFucionario()){
+                                        case 1:
+                                            cout << endl << endl << "           Nome do vendedor " << endl;
+                                            cout << "               nome:";
+                                            fflush(stdin);
+                                            getline(cin, nome);
+                                            vendedor.removeVendedor(nome, vendedores);
+                                            system("cls");
+                                            break;
+                                        case 2:
+                                            cout << endl << endl << "           Nome do veterinario " << endl;
+                                            cout << "               nome:";
+                                            fflush(stdin);
+                                            getline(cin, nome);
+                                            veterinario.removeVeterinario(nome, veterinarios);
+                                            system("cls");
+                                            break;
+                                        case 3:
+                                            cout << endl << endl << "           Nome do Tosador " << endl;
+                                            cout << "               nome:";
+                                            fflush(stdin);
+                                            getline(cin, nome);
+                                            tosador.removeTosador(nome, tosadores);
+                                            system("cls");
+                                            break;
+                                        case -1:
+                                            stopRemove = -1;
+                                            break;
+                                    }
+                                }
                                 break;
                             case -1:
                                 stopUsers = -1;
