@@ -1,20 +1,18 @@
 #include "pagamentos.hpp"
 
 Pagamentos::Pagamentos(){}
-Pagamentos::Pagamentos(double valores, bool foiPago){
-    setValores(valores);
-    setFoiPago(foiPago);
-} 
+Pagamentos::Pagamentos(double valor, bool foiPago) : valor(valor), foiPago(foiPago){}
+Pagamentos::~Pagamentos(){}
 
-void Pagamentos::setValores(double valores){
-    this->valores = valores;
+void Pagamentos::setValor(double valor){
+    this->valor = valor;
 }
 void Pagamentos::setFoiPago(bool foiPago){
     this->foiPago = foiPago;
 }
 
-double Pagamentos::getValores() const{
-    return valores;
+double Pagamentos::getValor() const{
+    return valor;
 }
 bool Pagamentos::getFoiPago() const{
     return foiPago;

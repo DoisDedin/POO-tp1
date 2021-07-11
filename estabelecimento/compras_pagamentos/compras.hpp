@@ -8,9 +8,12 @@
 using namespace std;
 
 class Compras:public Produtos{
-    private:
         int qtdParaAdd;
     public:
+        Compras();
+        Compras(int qtdParaAdd);
+        ~Compras();
+
         void setQtdParaAdd(int qtdParaAdd);
 
         int getQtdParaAdd() const;
