@@ -25,6 +25,7 @@ class Produtos{
         int getQuantidade() const;
         double getPreco() const;
 
-        void tiraDoEstoque(int qtdVendidos, int quantidade);
+        void addNoEstoque(vector<Produtos> &vector, string nome, int qtd);
+        void tiraDoEstoque(vector<Produtos> &vector, string nome, int qtd);
 };
 #endif

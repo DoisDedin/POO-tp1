@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
     string login, senha, nome, cpf, telefone, cargo;
+    string dataV, dataP;
     string aux;
     int aux2;
     double salario;
@@ -25,6 +26,7 @@ int main() {
     vendedor = Vendedor("Bryan O'Conner", "84221454059", "(10)55022-2023", "vendedor", 1250.10, "vend2", "1973");
     vendedores.push_back(vendedor);
     sizeVendedores = 2;
+
     vector<Veterinario> veterinarios;
     int sizeVeterinario = 0;
     Veterinario veterinario = Veterinario("Hinata Hyuga", "75807674065", "(72)79764-9945", "veterinario", 3250.0, "vet1", "1113");
@@ -32,6 +34,7 @@ int main() {
     veterinario = Veterinario("Paolo Guerrero", "43325489060", "(26)76518-5348", "veterinario", 3230.0, "vet2", "1984");
     veterinarios.push_back(veterinario);
     sizeVeterinario = 2;
+
     vector<Tosador> tosadores;
     int sizeTosadores = 0;
     Tosador tosador = Tosador("Larissa Silva", "29619550099", "(20)75743-8099", "tosador", 1100.0);
@@ -39,6 +42,7 @@ int main() {
     tosador = Tosador("Carlos Eduardo", "06733613069", "(77)26843-9252", "tosador", 1100.0);
     tosadores.push_back(tosador);
     sizeTosadores = 2;
+
     vector<Cliente> clientes;
     int sizeClientes = 0;
     Cliente cliente = Cliente("Paulo Plinio", "37283338080", "(60)47950-4741", 10);
@@ -46,10 +50,14 @@ int main() {
     cliente = Cliente("Paula Muller", "39521401044", "(82)26615-9145", 5);
     clientes.push_back(cliente);
     sizeClientes = 2;
+
     vector<Compras> compras;
     int sizeCompras = 0;
+
     vector<Pagamentos> pagamentos;
+    Pagamentos pagar = Pagamentos(" ", " ", " ");
     int sizePagamentos = 0;
+
     vector<Produtos> produtos;
     int sizeProdutos = 0;
     Produtos produtos1 = Produtos("Coleira", 35, 23.45);
@@ -61,9 +69,16 @@ int main() {
     produtos1 = Produtos("Racao", 150, 98.10);
     produtos.push_back(produtos1);
     sizeProdutos = 4;
+
     vector<Servicos> servicos;
-    Servicos servicos1 = Servicos();
     int sizeServicos = 0;
+    Servicos servicos1 = Servicos("Banho", "25 Min", 85.30, 0);
+    servicos.push_back(servicos1);
+    servicos1 = Servicos("Tosa", "12 Min", 58.15, 0);
+    servicos.push_back(servicos1);
+    servicos1 = Servicos("Consulta", "tempo variado", 158.58, 0);
+    servicos.push_back(servicos1);
+    sizeServicos = 3;
 
     //declarando o responsavel pela manipulação dos arquivos e sua chamada para encher os vetores com os dados
     Arquivos arquivos = Arquivos();
@@ -233,24 +248,31 @@ int main() {
                                 break;
                                 //cadastro de servicos
                             case 9:
-                                system("cls");
-                                cout << endl << endl << "           Cadastro de Servicos " << endl;
-                                cout << "               nome:";
-                                fflush(stdin);
-                                getline(cin, nome);
-                                cout << "               preco:";
-                                cin >> salario;
-                                cout << "               tempo de duracao:";
-                                fflush(stdin);
-                                getline(cin, cpf);
-                                servicos1.setNome(nome);
-                                servicos1.setPreco(salario);
-                                servicos1.setTempo(cpf);
-                                servicos.push_back(servicos1);
-                                sizeServicos++;
-                                system("cls");
-                                cout << "cadastro efetuaado com suscesso" << endl;
-                                //ver produtos e servicos
+                                switch (layout.layoutVender()) {
+                                    case 1:
+                                        cout << "               Nome:";
+                                        fflush(stdin);
+                                        getline(cin, nome);
+                                        cout << "               Quantidade:";
+                                        cin >> quantidade;
+                                        produtos1.tiraDoEstoque(produtos, nome, quantidade);
+                                        break;
+                                    case 2:
+                                        cout << "               Quantidade de animais para o banho:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 0, quantidade);
+                                        break;
+                                    case 3:
+                                        cout << "               Quantidade de animais para tosa:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 1, quantidade);
+                                        break;
+                                    case 4:
+                                        cout << "               Quantidade de animais para consulta:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 2, quantidade);
+                                        break;
+                                }
                                 break;
                             case 10:
                                 cout << "Produto: " << produtos[2].getNome() <<endl;
@@ -262,9 +284,32 @@ int main() {
                                 break;
                             case 11:
                                 //Pagar conta
+                                system("cls");
+                                cout << endl << endl << "           Pagar Contas " << endl;
+                                cout << "               Descricao da conta (tipo da conta):";
+                                fflush(stdin);
+                                getline(cin, nome);
+                                cout << "               Data de Vencimento:";
+                                fflush(stdin);
+                                getline(cin, dataV);
+                                cout << "               Data de Pagamento:";
+                                fflush(stdin);
+                                getline(cin, dataP);
+                                pagar.setPagamento(dataP);
+                                pagar.setVencimento(dataV);
+                                pagar.SetDescricao(nome);
+                                pagamentos.push_back(pagar);
+                                sizePagamentos++;
                                 break;
                             case 12:
                                 //Compras
+                                cout << "               Adicionar produtos/utilitarios no estoque" << endl;
+                                cout << "               Produto:";
+                                fflush(stdin);
+                                getline(cin, nome);
+                                cout << "               Quantidade:";
+                                cin >> quantidade;
+                                produtos1.addNoEstoque(produtos, nome, quantidade);
                                 break;
                             case 13:
                                 //Gerar Relatorios

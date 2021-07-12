@@ -26,10 +26,26 @@ int Produtos::getQuantidade() const {
 double Produtos::getPreco() const {
     return preco;
 }
-
-void Produtos::tiraDoEstoque(int qtdVendidos, int quantidade) {
-    if (quantidade < qtdVendidos) {
-        cout << "A quantidade desejada excede o estabelecimento\n";
-        cout << "quantidade em estabelecimento: \n" << getQuantidade();
-    } else setQuantidade(quantidade - qtdVendidos);
+void Produtos::addNoEstoque(vector<Produtos> &vector, string nome, int qtd){
+    int aux;
+    for (int i = 0; i < vector.size(); ++i) {
+        if(vector[i].getNome() == nome){
+            aux = vector[i].getQuantidade();
+            vector[i].setQuantidade(aux + qtd);
+            break;
+        }
+    }
+}
+void Produtos::tiraDoEstoque(vector<Produtos> &vector, string nome, int qtd) {
+    int aux;
+    for (int i = 0; i < vector.size(); ++i) {
+        if(vector[i].getNome() == nome){
+            aux = vector[i].getQuantidade();
+            if (aux < qtd) {
+                cout << "A quantidade desejada excede o estabelecimento\n";
+                cout << "quantidade em estabelecimento: \n" << aux;
+            } else setQuantidade(aux - qtd);
+            break;
+        }
+    }
 }

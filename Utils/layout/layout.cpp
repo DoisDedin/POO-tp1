@@ -91,7 +91,7 @@ int Layout::layoutAdmin() {
     cout << "           6  - Visualizar Clientes simples. " << endl;
     cout << "           7  - Visualizar Clientes completo. " << endl;
     cout << "           8  - Cadastro Produto. " << endl;
-    cout << "           9  - Cadastro Servico. " << endl;
+    cout << "           9  - Vender. " << endl;
     cout << "           10  - Ver Produtos e servicos. " << endl;
     cout << "           11  - Pagar Conta. " << endl;
     cout << "           12  - Compras. " << endl;
@@ -128,7 +128,7 @@ int Layout::layoutVeterinario() {
     cin >> x;
     return x;
 }
-int Layout::layoutRemoverFucionario() {{
+int Layout::layoutRemoverFucionario() {
         system("cls");
         int x;
         cout << "       Escolha uma das opcoes:" << endl << endl;
@@ -139,9 +139,19 @@ int Layout::layoutRemoverFucionario() {{
         cout << "   Opcao:";
         cin >> x;
         return x;
-}}
-
-
+}
+int Layout::layoutVender() {
+    //system("cls");
+    int x;
+    cout << "       Vendas" << endl << endl;
+    cout << "           1  - Produtos. " << endl;
+    cout << "           2  - Banho. " << endl;
+    cout << "           3  - Tosa. " << endl;
+    cout << "           4  - Consulta. " << endl << endl;
+    cout << "   Opcao:";
+    cin >> x;
+    return x;
+}
 
 
 

@@ -8,16 +8,20 @@ using namespace std;
 
 class Pagamentos{
     private:
-        double valores;
-        bool foiPago;
+        string dataPagamento;
+        string dataVencimento;
+        string desc;
     public:
+        ~Pagamentos();
         Pagamentos();
-        Pagamentos(double valoes = 0, bool foiPago = 0);
-        void setValores(double valores);
-        void setFoiPago(bool foiPago);
+        Pagamentos(string = "", string = "", string = "");
+        void setPagamento(string dataPagamento);
+        void setVencimento(string dataVencimento);
+        void SetDescricao(string desc);
 
-        double getValores() const;
-        bool getFoiPago() const;
+        string getPagamento() const;
+        string getVencimento() const;
+        string getDescricao() const;
 };
 
 
