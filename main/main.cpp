@@ -16,6 +16,8 @@ int main() {
     int stopUsers = 0;
     int stopRemove = 0;
     int user;
+    vector<string> tratamento;
+    string obs;
 
     Layout layout = Layout();
     //declarando todos os vetores usados no sistema;
@@ -347,6 +349,29 @@ int main() {
                                     }
                                 }
                                 break;
+                            case 15:
+                                system("cls");
+                                cout << endl << endl << "           Cadastro de Cliente " << endl;
+                                cout << "               nome:";
+                                fflush(stdin);
+                                getline(cin, nome);
+                                cout << "               cpf( numeros apenas ):";
+                                fflush(stdin);
+                                getline(cin, cpf);
+                                cout << "               telefone:";
+                                fflush(stdin);
+                                getline(cin, telefone);
+                                cout << "               Quantidade de compras:";
+                                cin >> quantidade;
+                                cliente.setNome(nome);
+                                cliente.setCPF(cpf);
+                                cliente.setTel(telefone);
+                                cliente.setQtdCompras(quantidade);
+                                clientes.push_back(cliente);
+                                sizeClientes++;
+                                system("cls");
+                                cout << "cadastro efetuaado com suscesso" << endl;
+                                break;
                             case -1:
                                 stopUsers = -1;
                                 break;
@@ -364,7 +389,62 @@ int main() {
                 break;
             case 2:
                 if (arquivos.validaLogin(2, &login, &senha)) {
-                    layout.layoutVendedor();
+                    stopUsers = 0;
+                    while (stopUsers != -1){
+                        switch (layout.layoutVendedor()){
+                            case 1:
+                                system("cls");
+                                cout << endl << endl << "           Cadastro de Cliente " << endl;
+                                cout << "               nome:";
+                                fflush(stdin);
+                                getline(cin, nome);
+                                cout << "               cpf( numeros apenas ):";
+                                fflush(stdin);
+                                getline(cin, cpf);
+                                cout << "               telefone:";
+                                fflush(stdin);
+                                getline(cin, telefone);
+                                cout << "               Quantidade de compras:";
+                                cin >> quantidade;
+                                cliente.setNome(nome);
+                                cliente.setCPF(cpf);
+                                cliente.setTel(telefone);
+                                cliente.setQtdCompras(quantidade);
+                                clientes.push_back(cliente);
+                                sizeClientes++;
+                                break;
+                            case 2:
+                                switch (layout.layoutVender()) {
+                                    case 1:
+                                        cout << "               Nome:";
+                                        fflush(stdin);
+                                        getline(cin, nome);
+                                        cout << "               Quantidade:";
+                                        cin >> quantidade;
+                                        produtos1.tiraDoEstoque(produtos, nome, quantidade);
+                                        break;
+                                    case 2:
+                                        cout << "               Quantidade de animais para o banho:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 0, quantidade);
+                                        break;
+                                    case 3:
+                                        cout << "               Quantidade de animais para tosa:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 1, quantidade);
+                                        break;
+                                    case 4:
+                                        cout << "               Quantidade de animais para consulta:";
+                                        cin >> quantidade;
+                                        servicos1.gerarOrdem(servicos, 2, quantidade);
+                                        break;
+                                }
+                                break;
+                            case -1:
+                                stopUsers = -1;
+                                break;
+                        }
+                    }
                 } else {
                     system("cls");
                     cout << endl << endl << "login ou senha invalidos" << endl << endl;
@@ -372,7 +452,22 @@ int main() {
                 break;
             case 3:
                 if (arquivos.validaLogin(3, &login, &senha)) {
-                    layout.layoutVeterinario();
+                    stopUsers = 0;
+                    while (stopUsers != -1){
+                        switch (layout.layoutVeterinario()) {
+                            case 1:
+                                cout << endl << endl << "           Cadastro de Cliente " << endl;
+                                cout << "               nome:";
+                                fflush(stdin);
+                                getline(cin, nome);
+                                cliente.mostraCliente(clientes, nome);
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                        }
+                    }
                 } else {
                     system("cls");
                     cout << endl << endl << "login ou senha invalidos" << endl << endl;
