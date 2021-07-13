@@ -97,6 +97,7 @@ int Layout::layoutAdmin() {
     cout << "           12  - Compras. " << endl;
     cout << "           13 - Gerar Relatorios. " << endl;
     cout << "           14 - Remover Funcionario. " << endl;
+    cout << "           15 - Cadastra Clientes. " << endl;
     cout << "           -1 - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;
@@ -123,6 +124,7 @@ int Layout::layoutVeterinario() {
     cout << "       Escolha uma das opcoes:" << endl << endl;
     cout << "           1  - Cadastro de cliente. " << endl;
     cout << "           2  - Realizar Ordem e Servico. " << endl;
+    cout << "           3  - Insformacoes de tratamento. " << endl;
     cout << "           -1  - Voltar. " << endl << endl;
     cout << "   Opcao:";
     cin >> x;

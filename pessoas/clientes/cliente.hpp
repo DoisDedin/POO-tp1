@@ -26,6 +26,7 @@ public:
 
     void imprimeClientesSimples(vector<Cliente> &vector);
     void imprimeClientesCompleto(vector<Cliente> &vector);
+    void mostraCliente(vector<Cliente> &vector, string nome);
 };
 
 #endif
