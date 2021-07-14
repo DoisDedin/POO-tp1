@@ -40,7 +40,6 @@ void Veterinario::removeVeterinario(string nome, vector<Veterinario> &vector){
     for (int i = 0; i < vector.size(); i++) {
         if (vector[i].getNome() == nome){
             aux = i;
-            //erase(vector, vector[aux]);
             break;
         }
     }

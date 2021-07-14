@@ -11,7 +11,6 @@ void Funcionarios::setSalario(double salario){
     this->salario = salario;
 }
 
-
 string Funcionarios::getCargo() const{
     return cargo;
 }

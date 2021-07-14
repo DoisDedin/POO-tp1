@@ -35,7 +35,6 @@ public:
     string getCPF() const;
 
     string getTel() const;
-
 };
 
 

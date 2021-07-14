@@ -10,8 +10,6 @@
 using namespace std;
 
 class Tosador : public Funcionarios {
-
-
 public:
     ~Tosador();
     Tosador();

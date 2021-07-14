@@ -14,7 +14,6 @@ class Servicos{
         double preco;
         int qtd;
     public:
-
         Servicos();
         Servicos(string = "", string = "", double = 0.0, int = 0);
         ~Servicos();

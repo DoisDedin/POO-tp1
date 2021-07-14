@@ -20,7 +20,6 @@ class Produtos{
         void setNome(string nome);
         void setQuantidade(int qunatidade);
         void setPreco(double preco);
-
         string getNome() const;
         int getQuantidade() const;
         double getPreco() const;

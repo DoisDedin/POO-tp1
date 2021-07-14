@@ -23,7 +23,4 @@ class Pagamentos{
         string getVencimento() const;
         string getDescricao() const;
 };
-
-
-
 #endif

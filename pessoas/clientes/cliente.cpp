@@ -9,8 +9,6 @@ Cliente::~Cliente() {}
 void Cliente::setQtdCompras(int qtdCompras) {
     this->qtdCompras = qtdCompras;
 }
-
-
 int Cliente::getQtdComrpras() const {
     return  qtdCompras;
 }

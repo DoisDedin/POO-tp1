@@ -9,7 +9,7 @@ void Produtos::setNome(string nome) {
     this->nome = nome;
 }
 
-void Produtos::setQuantidade(int qunatidade) {
+void Produtos::setQuantidade(int quantidade) {
     this->quantidade = quantidade;
 }
 

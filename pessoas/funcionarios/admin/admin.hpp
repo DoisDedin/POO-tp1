@@ -11,21 +11,15 @@ class Admin : public Funcionarios {
     public:
         string user;
         string senha;
-
     public:
         ~Admin();
         Admin();
         Admin(string ="",string ="", string ="" ,string ="", double  = 0.0,string ="admin", string ="admin");
 
         void setUser(string user);
-
         void setSenha(string senha);
 
         string getUser() const;
-
         string getSenha() const;
 };
-
-
-
 #endif

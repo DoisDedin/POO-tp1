@@ -13,7 +13,6 @@ void Pagamentos::setVencimento(string dataVencimento) {
 void Pagamentos::SetDescricao(string desc) {
     this->desc = desc;
 }
-
 string Pagamentos::getPagamento() const{
     return dataPagamento;
 }

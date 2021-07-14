@@ -12,9 +12,7 @@ class Compras:public Produtos{
         int qtdParaAdd;
     public:
         void setQtdParaAdd(int qtdParaAdd);
-
         int getQtdParaAdd() const;
-        
         void addNoEstoque(int qtdParaAdd, int quantidade);
 };
 #endif

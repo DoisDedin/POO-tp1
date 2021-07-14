@@ -28,6 +28,7 @@ string Servicos::getTempo() const {
 int Servicos::getQuantidade() const {
     return qtd;
 }
+
 void Servicos::gerarOrdem(vector<Servicos> vector, int posi, int qtd){
     switch (posi) {
         case 0:
