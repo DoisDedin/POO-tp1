@@ -5,7 +5,7 @@
 #include <string>
 
 using namespace std;
-
+//---
 class Pagamentos{
     private:
         double valor;
