@@ -15,9 +15,7 @@ class Compras:public Produtos{
         ~Compras();
 
         void setQtdParaAdd(int qtdParaAdd);
-
         int getQtdParaAdd() const;
-        
         void addNoEstoque(int qtdParaAdd, int quantidade);
 };
 #endif

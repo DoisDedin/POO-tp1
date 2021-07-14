@@ -11,7 +11,6 @@ class Funcionarios: public Pessoa{
 private:
         string cargo;
         double salario;
-    
     public:
         ~Funcionarios();
         Funcionarios();

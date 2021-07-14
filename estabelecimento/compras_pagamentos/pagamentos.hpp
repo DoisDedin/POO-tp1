@@ -20,7 +20,4 @@ class Pagamentos{
         double getValor() const;
         bool getFoiPago() const;
 };
-
-
-
 #endif

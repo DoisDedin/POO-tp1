@@ -13,24 +13,23 @@
 using namespace std;
 
 class Veterinario : public Funcionarios {
-public:
-    string user;
-    string senha;
+    public:
+        string user;
+        string senha;
+    public:
+        Veterinario();
+        Veterinario(string ="",string ="", string ="" ,string ="", double  = 0.0,string ="", string ="");
+        ~Veterinario();
+        void setUser(string user);
 
-public:
-    Veterinario();
-    Veterinario(string ="",string ="", string ="" ,string ="", double  = 0.0,string ="", string ="");
-    ~Veterinario();
-    void setUser(string user);
+        void setSenha(string senha);
 
-    void setSenha(string senha);
+        string getUser() const;
 
-    string getUser() const;
+        string getSenha() const;
+        void imprimeVeterinarioSimples(vector<Veterinario> &vector);
+        void imprimeVeterinarioCompleto(vector<Veterinario> &vector);
 
-    string getSenha() const;
-    void imprimeVeterinarioSimples(vector<Veterinario> &vector);
-    void imprimeVeterinarioCompleto(vector<Veterinario> &vector);
-
-    void removeVeterinario(string nome, vector<Veterinario> &vector);
+        void removeVeterinario(string nome, vector<Veterinario> &vector);
 };
 #endif //UNTITLED1_VETERINARIO_HPP

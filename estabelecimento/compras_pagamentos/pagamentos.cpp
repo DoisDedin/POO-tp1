@@ -1,19 +1,24 @@
 #include "pagamentos.hpp"
 
+Pagamentos::~Pagamentos() {}
 Pagamentos::Pagamentos(){}
-Pagamentos::Pagamentos(double valor, bool foiPago) : valor(valor), foiPago(foiPago){}
-Pagamentos::~Pagamentos(){}
 
-void Pagamentos::setValor(double valor){
-    this->valor = valor;
+Pagamentos::Pagamentos(string dataPagamento, string dataVencimento, string desc):dataPagamento(dataPagamento), dataVencimento(dataVencimento),desc(desc){}
+void Pagamentos::setPagamento(string dataPagamento){
+    this->dataPagamento = dataPagamento;
 }
-void Pagamentos::setFoiPago(bool foiPago){
-    this->foiPago = foiPago;
+void Pagamentos::setVencimento(string dataVencimento) {
+    this->dataPagamento = dataVencimento;
 }
-
-double Pagamentos::getValor() const{
-    return valor;
+void Pagamentos::SetDescricao(string desc) {
+    this->desc = desc;
 }
-bool Pagamentos::getFoiPago() const{
-    return foiPago;
+string Pagamentos::getPagamento() const{
+    return dataPagamento;
+}
+string Pagamentos::getVencimento() const{
+    return dataVencimento;
+}
+string Pagamentos::getDescricao() const{
+    return desc;
 }

@@ -3,24 +3,28 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Produtos{
+    private:
+        string nome;
         int quantidade;
         double preco;
     public:
-        Produtos();
-        Produtos(int quantidade, double preco);
         ~Produtos();
+        Produtos();
+        Produtos(string = "", int = 0, double = 0.0);
 
-        void setQuantidade(int quantidade);
+        void setNome(string nome);
+        void setQuantidade(int qunatidade);
         void setPreco(double preco);
-
+        string getNome() const;
         int getQuantidade() const;
         double getPreco() const;
 
-        void tiraDoEstoque(int qtdVendidos, int quantidade);
-
+        void addNoEstoque(vector<Produtos> &vector, string nome, int qtd);
+        void tiraDoEstoque(vector<Produtos> &vector, string nome, int qtd);
 };
 #endif

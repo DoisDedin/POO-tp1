@@ -42,7 +42,6 @@ void Vendedor::removeVendedor(string nome, vector<Vendedor> &vector){
     for (int i = 0; i < vector.size(); i++) {
         if (vector[i].getNome() == nome){
             aux = i;
-            //erase(vector, vector[aux]);
             break;
         }
     }

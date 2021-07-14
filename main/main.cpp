@@ -10,6 +10,11 @@ int main() {
     string dataV, dataP;
     string aux;
     int aux2;
+    double valorEmVendas = 0;
+    double valorEmServicos = 0;
+    double valorEmCompras = 0;
+    int qtdVendas = 0;
+    int qtdServicos  = 0;
     double salario;
     int quantidade;
     int stop = 0;
@@ -240,6 +245,7 @@ int main() {
                                 cin >> salario;
                                 cout << "               quantidade:";
                                 cin >> quantidade;
+                                valorEmCompras += salario * quantidade;
                                 produtos1.setNome(nome);
                                 produtos1.setPreco(salario);
                                 produtos1.setQuantidade(quantidade);
@@ -257,32 +263,57 @@ int main() {
                                         getline(cin, nome);
                                         cout << "               Quantidade:";
                                         cin >> quantidade;
+                                        for (int i = 0; i < produtos.size(); ++i) {
+                                            if (produtos[i].getNome() == nome){
+                                                salario = produtos[i].getPreco() * quantidade;
+                                                valorEmVendas += salario;
+                                                break;
+                                            }
+                                        }
+                                        cout << "               Preco final:" << salario << endl;
+                                        qtdVendas++;
                                         produtos1.tiraDoEstoque(produtos, nome, quantidade);
+                                        system("pause");
                                         break;
                                     case 2:
                                         cout << "               Quantidade de animais para o banho:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[0].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[0].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 0, quantidade);
+                                        system("pause");
                                         break;
                                     case 3:
                                         cout << "               Quantidade de animais para tosa:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[1].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[1].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 1, quantidade);
+                                        system("pause");
                                         break;
                                     case 4:
                                         cout << "               Quantidade de animais para consulta:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[2].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[2].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 2, quantidade);
+                                        system("pause");
                                         break;
                                 }
                                 break;
                             case 10:
-                                cout << "Produto: " << produtos[2].getNome() <<endl;
-                               /* for (int i = 0; i < produtos.size(); ++i) {
-                                    aux = produtos[i].getNome();
-                                    aux2 = produtos[i].getQuantidade();
-                                    printf("%s  %d", aux, aux2);
-                                }*/
+                                cout << "               Produtos disponiveis:" << endl;
+                                for (int i = 0; i < produtos.size(); ++i) {
+                                    cout << "Nome: "<< produtos[i].getNome() << "   Quantidade:"<< produtos[i].getQuantidade()<< endl;
+                                }
+                                cout << "               Servicos disponiveis:" << endl;
+                                for (int i = 0; i < produtos.size(); ++i) {
+                                    cout << "Nome: "<< servicos[i].getNome() << endl;
+                                }
+                                system("pause");
                                 break;
                             case 11:
                                 //Pagar conta
@@ -315,6 +346,18 @@ int main() {
                                 break;
                             case 13:
                                 //Gerar Relatorios
+                                cout << "               Relatorio do dia" << endl;
+                                cout << "               Quantidade de produtos vendidos: " << qtdVendas << endl;
+                                cout << "               Valor total de produtos vendidos: R$ " << valorEmVendas << endl;
+                                cout << "               Quantidade de servicos vendidos: " << qtdServicos << endl;
+                                cout << "               Valor total de servicos vendidos R$ :" << valorEmServicos << endl;
+                                cout << "               Produtos comprados para compor o estoque da loja" << endl;
+                                for (int i = 4; i < produtos.size(); ++i) {
+                                    cout << "               Nome: "<< produtos[i].getNome() << "   Quantidade:"<< produtos[i].getQuantidade()<< endl;
+                                }
+                                cout << "               Valor total em produtos comprados para compor o estoque da loja: R$ " << valorEmCompras << endl;
+                                cout << "               Lucro do dia: R$ " << (valorEmServicos + valorEmVendas) - valorEmCompras << endl;
+                                system("pause");
                                 break;
                             case 14:
                                 while (stopRemove != -1){
@@ -421,22 +464,44 @@ int main() {
                                         getline(cin, nome);
                                         cout << "               Quantidade:";
                                         cin >> quantidade;
+                                        for (int i = 0; i < produtos.size(); ++i) {
+                                            if (produtos[i].getNome() == nome){
+                                                salario = produtos[i].getPreco() * quantidade;
+                                                valorEmVendas += salario;
+                                                break;
+                                            }
+                                        }
+                                        cout << "               Preco final:" << salario << endl;
+                                        qtdVendas++;
                                         produtos1.tiraDoEstoque(produtos, nome, quantidade);
+                                        system("pause");
                                         break;
                                     case 2:
                                         cout << "               Quantidade de animais para o banho:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[0].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[0].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 0, quantidade);
+                                        system("pause");
                                         break;
                                     case 3:
                                         cout << "               Quantidade de animais para tosa:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[1].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[1].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 1, quantidade);
+                                        system("pause");
                                         break;
                                     case 4:
                                         cout << "               Quantidade de animais para consulta:";
                                         cin >> quantidade;
+                                        cout << "               Preco final:" << servicos[2].getPreco() * quantidade << endl;
+                                        valorEmServicos += servicos[2].getPreco() * quantidade;
+                                        qtdServicos++;
                                         servicos1.gerarOrdem(servicos, 2, quantidade);
+                                        system("pause");
                                         break;
                                 }
                                 break;
@@ -461,10 +526,22 @@ int main() {
                                 fflush(stdin);
                                 getline(cin, nome);
                                 cliente.mostraCliente(clientes, nome);
+                                system("pause");
                                 break;
                             case 2:
+                                cout << endl << endl << "           Ordems de servico " << endl;
+                                cout << "               Quatidade de animais para atendimento: " << servicos[2].getQuantidade();
+                                system("pause");
                                 break;
                             case 3:
+                                cout << endl << endl << "           Registrar informacoes do tratamento " << endl;
+                                cout << "               Descricao: ";
+                                fflush(stdin);
+                                getline(cin, obs);
+                                tratamento.push_back(obs);
+                                break;
+                            case -1:
+                                stopUsers = -1;
                                 break;
                         }
                     }

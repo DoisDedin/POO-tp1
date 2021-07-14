@@ -12,7 +12,6 @@ using namespace std;
 
 class Layout{
     public:
-
     Layout();
     ~Layout();
     void resizeConsole();

@@ -105,7 +105,7 @@ int Layout::layoutAdmin() {
 }
 
 int Layout::layoutVendedor() {
-    system("cls");
+    //system("cls");
     int x;
     cout << endl << "                      Vendedor                   " << endl << endl;
     cout << "       Escolha uma das opcoes:" << endl << endl;
@@ -118,7 +118,7 @@ int Layout::layoutVendedor() {
 }
 
 int Layout::layoutVeterinario() {
-    system("cls");
+    //system("cls");
     int x;
     cout << endl << "                      Veterinario                   " << endl << endl;
     cout << "       Escolha uma das opcoes:" << endl << endl;
