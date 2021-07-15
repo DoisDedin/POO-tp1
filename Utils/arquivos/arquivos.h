@@ -24,7 +24,9 @@ private:
 public:
     Arquivos();
     ~Arquivos();
-    int validaLogin(int user, string *login, string *senha);
+    int validaLoginAdm(string *login, string *senha);
+    int validaLoginVen(string *login, string *senha,vector<Vendedor> &vendedor );
+    int validaLoginVet(string *login, string *senha,vector<Veterinario> &veterinario);
     int buscaNoBanco(int user, string *login, string *senha);
     void inicializaArquivo();
     void lerArquivoVendedor(int tamanho,vector<Vendedor> &vendedor);

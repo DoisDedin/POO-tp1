@@ -15,34 +15,29 @@ Arquivos::Arquivos() {}
 
 Arquivos::~Arquivos() {}
 
-int Arquivos::validaLogin(int user, string *login, string *senha) {
-    int x;
-    switch (user) {
-        case 1:
-            if (*login == "admin" && *senha == "admin") {
+int Arquivos::validaLoginAdm(string *login, string *senha) {
+           if (*login == "admin" && *senha == "admin") {
                 cout << "entrou no admin" << endl;
                 return 1;
             } else { return 0; }
-            break;
-        case 2:
-            x = buscaNoBanco(user, login, senha);
-            if (x == 1) {
-                cout << "entrou no vendedor" << endl;
-                return 1;
-            } else { return 0; }
-            break;
-        case 3:
-            x = buscaNoBanco(user, login, senha);
-            if (x == 1) {
-                cout << "entrou no veterinario" << endl;
-                return 1;
-            } else { return 0; }
-            break;
-        default:
-            return 0;
-            break;
+}
+
+int Arquivos::validaLoginVen(string *login, string *senha,vector<Vendedor> &vendedores) {
+    for(int rep = 0; rep < vendedores.size(); rep++){
+        if( vendedores[rep].getUser() == *login && vendedores[rep].getSenha() == *senha){
+            return 1;
+        }
     }
     return 0;
+}
+
+int Arquivos::validaLoginVet(string *login, string *senha, vector<Veterinario> &venterinarios) {
+    for(int rep = 0; rep < venterinarios.size(); rep++){
+        if(venterinarios[rep].getUser() == *login && venterinarios[rep].getSenha() == *senha){
+            return 1;
+        }
+    }
+return 0;
 }
 
 int Arquivos::buscaNoBanco(int user, string *login, string *senha) {

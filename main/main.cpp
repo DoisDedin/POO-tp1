@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+    //variaveis auxiliares ao funcionamento do codigo
     string login, senha, nome, cpf, telefone, cargo;
     string dataV, dataP;
     string aux;
@@ -24,8 +25,10 @@ int main() {
     vector<string> tratamento;
     string obs;
 
+    //classe responsavel pelo layout
     Layout layout = Layout();
-    //declarando todos os vetores usados no sistema;
+
+    //declarando todos os vetores usados no sistema (dados mokados);
     vector<Vendedor> vendedores;
     int sizeVendedores = 0;
     Vendedor vendedor = Vendedor("Joao da Mata", "15578922230", "(23)40891-7331", "vendedor", 1200.10, "vend1", "5533");
@@ -104,17 +107,23 @@ int main() {
 
     int y;
 
-
+    // em quase todas as partes de layout possuiem um loop, seja loguin, tela do adm, é feito, caso o usuario digite a
+    // senha ou algo de errado e não impeça que o codigo pare de funcionar
+    // o switch case reflete a opção que o usuario escolhe, assim caindo em uma das respectivas opções
     do {
         user = layout.layoutPrincipal();
         layout.layoutLoguin(user, &login, &senha);
         switch (user) {
+
+            // administrador
             case 1:
-                if (arquivos.validaLogin(1, &login, &senha)) {
+                //validação do loguin
+                if (arquivos.validaLoginAdm( &login, &senha) == 1) {
                     stopUsers = 0;
                     while (stopUsers != -1) {
 
                         switch (layout.layoutAdmin()) {
+
                             //cadastro de vendedor
                             case 1:
                                 system("cls");
@@ -148,6 +157,7 @@ int main() {
                                 system("cls");
                                 cout << "cadastro efetuaado com suscesso" << endl;
                                 break;
+
                             //cadastro de veterinario
                             case 2:
                                 system("cls");
@@ -181,6 +191,7 @@ int main() {
                                 system("cls");
                                 cout << "cadastro efetuaado com suscesso" << endl;
                                 break;
+
                                 //cadastro de tosador
                             case 3:
                                 system("cls");
@@ -206,6 +217,7 @@ int main() {
                                 system("cls");
                                 cout << "cadastro efetuaado com suscesso" << endl;
                                 break;
+
                                 //impressao de funcionarios simples
                             case 4:
                                 system("cls");
@@ -214,6 +226,7 @@ int main() {
                                 tosador.imprimeTosadorSimples(tosadores);
                                 system("pause");
                                 break;
+
                                 //impressao de funcionarios completo
                             case 5:
                                 system("cls");
@@ -222,18 +235,21 @@ int main() {
                                 tosador.imprimeTosadorCompleto(tosadores);
                                 system("pause");
                                 break;
+
                                 //impressao cliente simples.
                             case 6:
                                 system("cls");
                                 cliente.imprimeClientesSimples(clientes);
                                 system("pause");
                                 break;
+
                                 //impressao cliente completo.
                             case 7:
                                 system("cls");
                                 cliente.imprimeClientesCompleto(clientes);
                                 system("pause");
                                 break;
+
                                 //cadastro de produtos
                             case 8:
                                 system("cls");
@@ -254,9 +270,12 @@ int main() {
                                 system("cls");
                                 cout << "cadastro efetuaado com suscesso" << endl;
                                 break;
+
                                 //cadastro de servicos
                             case 9:
                                 switch (layout.layoutVender()) {
+
+                                    //venda de produtos
                                     case 1:
                                         cout << "               Nome:";
                                         fflush(stdin);
@@ -275,6 +294,8 @@ int main() {
                                         produtos1.tiraDoEstoque(produtos, nome, quantidade);
                                         system("pause");
                                         break;
+
+                                        //venda de banho
                                     case 2:
                                         cout << "               Quantidade de animais para o banho:";
                                         cin >> quantidade;
@@ -284,6 +305,8 @@ int main() {
                                         servicos1.gerarOrdem(servicos, 0, quantidade);
                                         system("pause");
                                         break;
+
+                                        //venda de tosa
                                     case 3:
                                         cout << "               Quantidade de animais para tosa:";
                                         cin >> quantidade;
@@ -293,6 +316,8 @@ int main() {
                                         servicos1.gerarOrdem(servicos, 1, quantidade);
                                         system("pause");
                                         break;
+
+                                        //venda de consulta
                                     case 4:
                                         cout << "               Quantidade de animais para consulta:";
                                         cin >> quantidade;
@@ -304,6 +329,8 @@ int main() {
                                         break;
                                 }
                                 break;
+
+                            //impressão de stock e serviços disponiveis
                             case 10:
                                 cout << "               Produtos disponiveis:" << endl;
                                 for (int i = 0; i < produtos.size(); ++i) {
@@ -315,8 +342,9 @@ int main() {
                                 }
                                 system("pause");
                                 break;
-                            case 11:
+
                                 //Pagar conta
+                            case 11:
                                 system("cls");
                                 cout << endl << endl << "           Pagar Contas " << endl;
                                 cout << "               Descricao da conta (tipo da conta):";
@@ -334,8 +362,9 @@ int main() {
                                 pagamentos.push_back(pagar);
                                 sizePagamentos++;
                                 break;
-                            case 12:
+
                                 //Compras
+                            case 12:
                                 cout << "               Adicionar produtos/utilitarios no estoque" << endl;
                                 cout << "               Produto:";
                                 fflush(stdin);
@@ -344,8 +373,9 @@ int main() {
                                 cin >> quantidade;
                                 produtos1.addNoEstoque(produtos, nome, quantidade);
                                 break;
-                            case 13:
+
                                 //Gerar Relatorios
+                            case 13:
                                 cout << "               Relatorio do dia" << endl;
                                 cout << "               Quantidade de produtos vendidos: " << qtdVendas << endl;
                                 cout << "               Valor total de produtos vendidos: R$ " << valorEmVendas << endl;
@@ -359,9 +389,14 @@ int main() {
                                 cout << "               Lucro do dia: R$ " << (valorEmServicos + valorEmVendas) - valorEmCompras << endl;
                                 system("pause");
                                 break;
+
                             case 14:
+                                //verificação para com que o usuario digite algo valido, enquanto o mesmo não for
+                                //obedecido o while não parara de ser executado
                                 while (stopRemove != -1){
                                     switch (layout.layoutRemoverFucionario()){
+
+                                        //removendo vendedor
                                         case 1:
                                             cout << endl << endl << "           Nome do vendedor " << endl;
                                             cout << "               nome:";
@@ -370,6 +405,8 @@ int main() {
                                             vendedor.removeVendedor(nome, vendedores);
                                             system("cls");
                                             break;
+
+                                            //removendo veterinario
                                         case 2:
                                             cout << endl << endl << "           Nome do veterinario " << endl;
                                             cout << "               nome:";
@@ -378,6 +415,8 @@ int main() {
                                             veterinario.removeVeterinario(nome, veterinarios);
                                             system("cls");
                                             break;
+
+                                            //removendo tosador
                                         case 3:
                                             cout << endl << endl << "           Nome do Tosador " << endl;
                                             cout << "               nome:";
@@ -389,10 +428,17 @@ int main() {
                                         case -1:
                                             stopRemove = -1;
                                             break;
+
+                                        default:
+                                            cout<< "erro, invalid code" << endl;
+                                            break;
                                     }
                                 }
                                 break;
+
+                                // cadastro de clientes
                             case 15:
+
                                 system("cls");
                                 cout << endl << endl << "           Cadastro de Cliente " << endl;
                                 cout << "               nome:";
@@ -430,11 +476,15 @@ int main() {
                     cout << endl << endl << "login ou senha invalidos" << endl << endl;
                 }
                 break;
+                //
             case 2:
-                if (arquivos.validaLogin(2, &login, &senha)) {
+                //vendedor
+                if (arquivos.validaLoginVen( &login, &senha, vendedores) == 1) {
                     stopUsers = 0;
                     while (stopUsers != -1){
                         switch (layout.layoutVendedor()){
+
+                            //cadastro de cliente
                             case 1:
                                 system("cls");
                                 cout << endl << endl << "           Cadastro de Cliente " << endl;
@@ -457,6 +507,7 @@ int main() {
                                 sizeClientes++;
                                 break;
                             case 2:
+                                //vender algum produto ou serviço
                                 switch (layout.layoutVender()) {
                                     case 1:
                                         cout << "               Nome:";
@@ -516,10 +567,13 @@ int main() {
                 }
                 break;
             case 3:
-                if (arquivos.validaLogin(3, &login, &senha)) {
+                //veterinario
+                if (arquivos.validaLoginVet(&login, &senha, veterinarios)) {
                     stopUsers = 0;
                     while (stopUsers != -1){
                         switch (layout.layoutVeterinario()) {
+
+                            //cadastro de cliente
                             case 1:
                                 cout << endl << endl << "           Cadastro de Cliente " << endl;
                                 cout << "               nome:";
@@ -528,11 +582,15 @@ int main() {
                                 cliente.mostraCliente(clientes, nome);
                                 system("pause");
                                 break;
+
+                                //gerar ordem de servico
                             case 2:
                                 cout << endl << endl << "           Ordems de servico " << endl;
                                 cout << "               Quatidade de animais para atendimento: " << servicos[2].getQuantidade();
                                 system("pause");
                                 break;
+
+                                //registrar informacões do tratamneto
                             case 3:
                                 cout << endl << endl << "           Registrar informacoes do tratamento " << endl;
                                 cout << "               Descricao: ";
