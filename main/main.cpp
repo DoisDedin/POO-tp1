@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+    //variaveis auxiliares ao funcionamento do codigo
     string login, senha, nome, cpf, telefone, cargo;
     string dataV, dataP;
     string aux;
@@ -23,9 +24,9 @@ int main() {
     int user;
     vector<string> tratamento;
     string obs;
-
+    //classe responsavel pelo layout
     Layout layout = Layout();
-    //declarando todos os vetores usados no sistema;
+    //declarando todos os vetores usados no sistema (dados mokados);
     vector<Vendedor> vendedores;
     int sizeVendedores = 0;
     Vendedor vendedor = Vendedor("Joao da Mata", "15578922230", "(23)40891-7331", "vendedor", 1200.10, "vend1", "5533");
@@ -104,7 +105,9 @@ int main() {
 
     int y;
 
-
+    // em quase todas as partes de layout possuiem um loop, seja loguin, tela do adm, é feito, caso o usuario digite a
+    // senha ou algo de errado e não impeça que o codigo pare de funcionar
+    // o switch case reflete a opção que o usuario escolhe, assim caindo em uma das respectivas opções
     do {
         user = layout.layoutPrincipal();
         layout.layoutLoguin(user, &login, &senha);
